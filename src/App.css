@@ -1,0 +1,6 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #7d8caac8 /* oklch(0.546 0.245 262.881) = #155dfc */;
+}

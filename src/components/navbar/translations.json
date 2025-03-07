@@ -1,0 +1,23 @@
+{
+  "en": {
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "fr": {
+    "about": "À propos de nous",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Témoignages",
+    "contact": "Contact"
+  },
+  "es": {
+    "about": "Acerca de nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  }
+}
