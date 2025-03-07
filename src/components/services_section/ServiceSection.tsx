@@ -46,14 +46,14 @@ const translations: any = {
         description:
           "Solutions de nettoyage professionnelles adaptées aux entreprises, garantissant un environnement propre et hygiénique pour vos employés et clients.",
         image:
-          "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/commercial-cleaning.jpg?alt=media&token=3d8b42be-8e02-4510-b38f-e8b19012946a",
+          "https://gravitemedia.s3.ca-central-1.amazonaws.com/47/2021/01/Depositphotos_34294849_l-2015.jpg",
       },
       {
         title: "Services de bricolage",
         description:
           "Services experts de maintenance et de réparation pour les propriétés commerciales, assurant que vos installations sont toujours en parfait état.",
         image:
-          "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/handyman-services.jpg?alt=media&token=817cc277-6bcb-402d-a334-5c63fb6a7d31",
+          "https://kaizenaire.com/wp-content/uploads/2023/12/Commercial-Cleaning-Services-in-Singapore-Keeping-Your-Business-Sparkling-Clean-1024x585.jpg",
       },
       {
         title: "Conception et planification de patio",
@@ -131,7 +131,7 @@ export const ServicesSection = ({ language = '⚜️ FR' }) => {
   return (
     <section
       style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
-      className="py-20 px-6 text-center bg-gray-50 rounded-t-3xl shadow-lg border border-gray-200 relative -mt-10"
+      className="py-20 px-6 text-center bg-gray-200 rounded-t-3xl shadow-lg border border-gray-200 relative -mt-10"
       id="services"
     >
       <h2 className="text-5xl font-serif font-bold mb-16 leading-tight tracking-wide text-gray-900">

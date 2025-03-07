@@ -14,7 +14,7 @@ const translations: any = {
             { label: "Contact", href: "#contact" },
         ],
         followUsTitle: "Follow Us",
-        copyright: `© ${new Date().getFullYear()} MVO Patio & Reno. All rights reserved.`,
+        copyright: `© ${new Date().getFullYear()} Ecoserv - MV. All rights reserved.`,
     },
     '⚜️ FR': {
         companyName: "MVO Patio & Reno",
@@ -28,7 +28,7 @@ const translations: any = {
             { label: "Contact", href: "#contact" },
         ],
         followUsTitle: "Suivez-nous",
-        copyright: `© ${new Date().getFullYear()} MVO Patio & Reno. Tous droits réservés.`,
+        copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Tous droits réservés.`,
     },
     '🇨🇱 ES': {
         companyName: "MVO Patio & Reno",
@@ -42,7 +42,7 @@ const translations: any = {
             { label: "Contacto", href: "#contact" },
         ],
         followUsTitle: "Síguenos",
-        copyright: `© ${new Date().getFullYear()} MVO Patio & Reno. Todos los derechos reservados.`,
+        copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Todos los derechos reservados.`,
     },
 };
 
