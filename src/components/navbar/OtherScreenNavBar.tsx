@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo/logoVIII.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook
+import { other_screen_navbar_translations } from "./NavBarTranslations";
 
 export const OtherScreenNavBar = () => {
     const navigate = useNavigate();
     const [visible, setVisible] = useState(true); // Initially, the navbar is visible
+
+    // Get the selected language from your custom hook
+    const { languageSelected } = useLanguageSelector();
 
     useEffect(() => {
         let lastScrollTop = 0; // Track the last scroll position
@@ -27,6 +32,10 @@ export const OtherScreenNavBar = () => {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+
+    // Get the translation based on the selected language
+    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["⚜️ FR"]; // Fallback to English
 
     return (
         <div
@@ -58,7 +67,7 @@ export const OtherScreenNavBar = () => {
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                         />
                     </svg>
-                    <span className="hidden sm:inline font-medium">Back</span>
+                    <span className="hidden sm:inline font-medium">{back}</span>
                 </button>
             </div>
         </div>

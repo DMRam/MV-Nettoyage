@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
+import { estimate_modal_translations } from "./EstimateModalTranslations";
 
 type ModalProps = {
     isOpen: boolean;
@@ -13,99 +14,11 @@ type AdditionalOptions = {
     windowCleaning: boolean;
 };
 
-// Language configuration
-const translations: any = {
-    "🇨🇦 EN": {
-        title: "Cleaning Services Estimate",
-        description: "Fill in the details to get an accurate cleaning estimate.",
-        measurementUnit: "Measurement Unit:",
-        switchUnit: "Switch to",
-        areaPlaceholder: "Enter area",
-        cleaningType: {
-            basic: "Basic Cleaning ($0.25/sqft)",
-            standard: "Standard Cleaning ($0.35/sqft)",
-            premium: "Premium Cleaning ($0.45/sqft)",
-        },
-        additionalWork: "Additional Services:",
-        uploadImage: "Upload an image (optional):",
-        uploadImageError: "File size must be less than 5 MB.",
-        uploadImageTypeError: "Please upload an image file.",
-        emailPlaceholder: "Enter email to receive estimate",
-        reviewEstimate: "Review Estimate",
-        estimatedCost: "Estimated Cost:",
-        confirmEstimate: "Confirm Estimate",
-        sendForValidation: "Send for Validation",
-        sending: "Sending...",
-        sent: "Sent!",
-        addNote: "Add a note (optional)",
-        areaError: "Please enter a valid area.",
-        emailError: "Please enter a valid email address.",
-        message_recalculate: "➡️ The estimated price updates automatically when quantities change.",
-        message_final_price: "➡️ This estimate is for reference only and does not constitute the final price."
-    },
-    "⚜️ FR": {
-        title: "Estimation des Services de Nettoyage",
-        description: "Remplissez les détails pour obtenir une estimation précise.",
-        measurementUnit: "Unité de mesure :",
-        switchUnit: "Changer en",
-        areaPlaceholder: "Entrez la surface",
-        cleaningType: {
-            basic: "Nettoyage de base (0,25$/pi²)",
-            standard: "Nettoyage standard (0,35$/pi²)",
-            premium: "Nettoyage premium (0,45$/pi²)",
-        },
-        additionalWork: "Services supplémentaires :",
-        uploadImage: "Téléverser une image (optionnel) :",
-        uploadImageError: "La taille du fichier doit être inférieure à 5 Mo.",
-        uploadImageTypeError: "Veuillez téléverser un fichier image.",
-        emailPlaceholder: "Entrez votre email pour recevoir l'estimation",
-        reviewEstimate: "Voir l'estimation",
-        estimatedCost: "Coût Estimé :",
-        confirmEstimate: "Confirmer l'estimation",
-        sendForValidation: "Envoyer pour Validation",
-        sending: "Envoi en cours...",
-        sent: "Envoyé!",
-        addNote: "Ajoutez une note (optionnel)",
-        areaError: "Veuillez entrer une surface valide.",
-        emailError: "Veuillez entrer une adresse email valide.",
-        message_recalculate: "➡️ Le prix estimé est recalculé automatiquement lorsque les quantités changent.",
-        message_final_price: "➡️ Cette estimation est fournie à titre indicatif et ne constitue pas un prix final."
-    },
-    "🇨🇱 ES": {
-        title: "Estimación de Servicios de Limpieza",
-        description: "Complete los detalles para obtener una estimación precisa.",
-        measurementUnit: "Unidad de medida:",
-        switchUnit: "Cambiar a",
-        areaPlaceholder: "Ingrese el área",
-        cleaningType: {
-            basic: "Limpieza básica ($0.25/pie²)",
-            standard: "Limpieza estándar ($0.35/pie²)",
-            premium: "Limpieza premium ($0.45/pie²)",
-        },
-        additionalWork: "Servicios adicionales:",
-        uploadImage: "Subir una imagen (opcional):",
-        uploadImageError: "El tamaño del archivo debe ser menor a 5 MB.",
-        uploadImageTypeError: "Por favor suba un archivo de imagen.",
-        emailPlaceholder: "Ingrese su email para recibir la estimación",
-        reviewEstimate: "Revisar Estimación",
-        estimatedCost: "Costo Estimado:",
-        confirmEstimate: "Confirmar Estimación",
-        sendForValidation: "Enviar para Validación",
-        sending: "Enviando...",
-        sent: "¡Enviado!",
-        addNote: "Agregar una nota (opcional)",
-        areaError: "Por favor ingrese un área válida.",
-        emailError: "Por favor ingrese un email válido.",
-        message_recalculate: "➡️ El precio estimado se actualiza automáticamente al modificar las cantidades.",
-        message_final_price: "➡️ Esta es solo una estimación y no representa el precio final."
-    },
-};
-
 export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
     // Language and dropdown state
     const { languageSelected } = useLanguageSelector()
-    const t = translations[languageSelected];
+    const t = estimate_modal_translations[languageSelected];
     const [area, setArea] = useState<number | null>(null);
     const [displayArea, setDisplayArea] = useState("");
     const [isMetric, setIsMetric] = useState(false);
@@ -209,6 +122,8 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
 
     // Handle image upload
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        // Call firestore function to upload image
         const file = e.target.files?.[0];
         if (file) {
             if (file.size > 5 * 1024 * 1024) {

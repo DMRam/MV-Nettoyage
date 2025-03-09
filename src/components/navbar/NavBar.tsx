@@ -3,34 +3,7 @@ import logo from '../../assets/logo/logo_ecoserv.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguageSelector } from '../../hooks/useLanguageSelector';
-
-// Dummy translation data for each language
-const translations: any = {
-    '🇨🇦 EN': {
-        about: 'About Us',
-        services: 'Services',
-        portfolio: 'Portfolio',
-        testimonials: 'Testimonials',
-        contact: 'Contact',
-        language: 'Language'
-    },
-    '⚜️ FR': {
-        about: 'À propos de nous',
-        services: 'Services',
-        portfolio: 'Portfolio',
-        testimonials: 'Témoignages',
-        contact: 'Contact',
-        language: 'Langue'
-    },
-    '🇨🇱 ES': {
-        about: 'Sobre nosotros',
-        services: 'Servicios',
-        portfolio: 'Portafolio',
-        testimonials: 'Testimonios',
-        contact: 'Contacto',
-        language: 'Idioma'
-    }
-};
+import { navbar_translations } from './NavBarTranslations';
 
 export const NavBar = () => {
     // Language and dropdown state
@@ -102,7 +75,7 @@ export const NavBar = () => {
     }, [visible]); // Trigger this effect whenever `visible` changes
 
     // Get the current translations based on the selected language
-    const currentTranslations = translations[language];
+    const currentTranslations = navbar_translations[language];
 
     return (
         <div>
@@ -126,9 +99,9 @@ export const NavBar = () => {
                         <ScrollLink to="portfolio" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.portfolio}
                         </ScrollLink>
-                        <ScrollLink to="testimonials" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
+                        {/* <ScrollLink to="testimonials" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.testimonials}
-                        </ScrollLink>
+                        </ScrollLink> */}
                         <ScrollLink to="contact" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.contact}
                         </ScrollLink>

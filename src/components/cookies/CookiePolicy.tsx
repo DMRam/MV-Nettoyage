@@ -1,31 +1,45 @@
 import React from "react";
 import { OtherScreenNavBar } from "../navbar/OtherScreenNavBar";
+import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook
+import { cookie_policy_translations } from "./CookiesTranscriptions";
 
 export const CookiePolicy = () => {
+    // Get the selected language from your custom hook
+    const { languageSelected } = useLanguageSelector();
+
+    // Get the translations based on the selected language
+    const {
+        title,
+        intro,
+        whatAreCookies,
+        howWeUseCookies,
+        managingCookies,
+    } = cookie_policy_translations[languageSelected] || cookie_policy_translations["⚜️ FR"]; // Fallback to English
+
     return (
         <div className="p-8 max-w-4xl mx-auto">
             <OtherScreenNavBar />
-            <h1 className="text-4xl font-bold mb-6">Cookie Policy</h1>
+            <h1 className="text-4xl font-bold mb-6">{title}</h1>
+            <p className="text-lg mb-4">{intro}</p>
+
+            {/* What Are Cookies? */}
+            <h2 className="text-2xl font-bold mt-6 mb-4">{whatAreCookies.title}</h2>
+            <p className="text-lg mb-4">{whatAreCookies.content}</p>
+
+            {/* How We Use Cookies */}
+            <h2 className="text-2xl font-bold mt-6 mb-4">{howWeUseCookies.title}</h2>
             <p className="text-lg mb-4">
-                We use cookies to improve your experience on our website. This policy explains what cookies are, how we use them, and how you can manage them.
-            </p>
-            <h2 className="text-2xl font-bold mt-6 mb-4">What Are Cookies?</h2>
-            <p className="text-lg mb-4">
-                Cookies are small text files stored on your device when you visit a website. They help the website remember your preferences and improve your browsing experience.
-            </p>
-            <h2 className="text-2xl font-bold mt-6 mb-4">How We Use Cookies</h2>
-            <p className="text-lg mb-4">
-                We use cookies for:
+                {howWeUseCookies.content}
                 <ul className="list-disc pl-8 mt-2">
-                    <li>Analyzing website traffic</li>
-                    <li>Remembering your preferences</li>
-                    <li>Improving website performance</li>
+                    {howWeUseCookies.list.map((item: any, index: any) => (
+                        <li key={index}>{item}</li>
+                    ))}
                 </ul>
             </p>
-            <h2 className="text-2xl font-bold mt-6 mb-4">Managing Cookies</h2>
-            <p className="text-lg mb-4">
-                You can manage or disable cookies through your browser settings. However, this may affect your experience on our website.
-            </p>
+
+            {/* Managing Cookies */}
+            <h2 className="text-2xl font-bold mt-6 mb-4">{managingCookies.title}</h2>
+            <p className="text-lg mb-4">{managingCookies.content}</p>
         </div>
     );
 };

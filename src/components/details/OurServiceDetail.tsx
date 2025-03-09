@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { OtherScreenNavBar } from "../navbar/OtherScreenNavBar";
 import { motion } from "framer-motion"; // Import Framer Motion
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
+import { service_detail_translations } from "./ServiceDetailTranslations";
 
 export const OurServiceDetail = () => {
+    // Language and dropdown state
+    const { languageSelected } = useLanguageSelector();
+
     const location = useLocation();
     const { service } = location.state || {};
 
@@ -16,13 +21,13 @@ export const OurServiceDetail = () => {
     });
 
     // Handle form input changes
-    const handleInputChange = (e:any) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
     // Handle form submission
-    const handleSubmit = (e:any) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         alert(`Thank you, ${formData.name}! We will contact you shortly.`);
         // You can replace this with an API call to submit the form data
@@ -37,6 +42,16 @@ export const OurServiceDetail = () => {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
     };
+
+    // Get the translations based on the selected language
+    const {
+        requestInfo,
+        nameLabel,
+        emailLabel,
+        phoneLabel,
+        messageLabel,
+        submitButton,
+    } = service_detail_translations[languageSelected] || service_detail_translations["⚜️ FR"]; // Fallback to English
 
     return (
         <div style={{ marginTop: 30 }} className="p-8 bg-white"> {/* Ensure white background */}
@@ -76,12 +91,12 @@ export const OurServiceDetail = () => {
 
                 {/* Contact Form for Service Request */}
                 <motion.div className="mt-12" variants={containerVariants}>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Request More Information</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">{requestInfo}</h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Name Field */}
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                Name
+                                {nameLabel}
                             </label>
                             <input
                                 type="text"
@@ -97,7 +112,7 @@ export const OurServiceDetail = () => {
                         {/* Email Field */}
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                Email
+                                {emailLabel}
                             </label>
                             <input
                                 type="email"
@@ -113,7 +128,7 @@ export const OurServiceDetail = () => {
                         {/* Phone Field */}
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                                Phone
+                                {phoneLabel}
                             </label>
                             <input
                                 type="tel"
@@ -129,7 +144,7 @@ export const OurServiceDetail = () => {
                         {/* Message Field */}
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                                Message
+                                {messageLabel}
                             </label>
                             <textarea
                                 id="message"
@@ -148,7 +163,7 @@ export const OurServiceDetail = () => {
                                 type="submit"
                                 className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
                             >
-                                Submit Request
+                                {submitButton}
                             </button>
                         </div>
                     </form>
