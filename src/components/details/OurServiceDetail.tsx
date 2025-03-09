@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { OtherScreenNavBar } from "../navbar/OtherScreenNavBar";
 import { motion } from "framer-motion"; // Import Framer Motion
 
 export const OurServiceDetail = () => {
     const location = useLocation();
-    const { service } = location.state || {}; 
+    const { service } = location.state || {};
+
+    // State for the contact form
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    // Handle form input changes
+    const handleInputChange = (e:any) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    // Handle form submission
+    const handleSubmit = (e:any) => {
+        e.preventDefault();
+        alert(`Thank you, ${formData.name}! We will contact you shortly.`);
+        // You can replace this with an API call to submit the form data
+    };
 
     if (!service) {
         return <div>No service data found.</div>;
@@ -18,13 +39,13 @@ export const OurServiceDetail = () => {
     };
 
     return (
-        <div style={{ marginTop: 30 }} className="p-8">
+        <div style={{ marginTop: 30 }} className="p-8 bg-white"> {/* Ensure white background */}
             {/* Local Navigation Bar */}
             <OtherScreenNavBar />
 
             {/* Service Details */}
             <motion.div
-                className="mt-24" // Add margin-top to avoid overlap with the fixed nav bar
+                className="mt-24 max-w-4xl mx-auto" // Center the content
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -47,11 +68,91 @@ export const OurServiceDetail = () => {
 
                 {/* Animated Description */}
                 <motion.p
-                    className="text-lg text-gray-600"
+                    className="text-lg text-gray-700 mb-8"
                     variants={containerVariants}
                 >
                     {service.description}
                 </motion.p>
+
+                {/* Contact Form for Service Request */}
+                <motion.div className="mt-12" variants={containerVariants}>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Request More Information</h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Name Field */}
+                        <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required
+                            />
+                        </div>
+
+                        {/* Email Field */}
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required
+                            />
+                        </div>
+
+                        {/* Phone Field */}
+                        <div>
+                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                                Phone
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required
+                            />
+                        </div>
+
+                        {/* Message Field */}
+                        <div>
+                            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                                Message
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                rows={4}
+                                required
+                            />
+                        </div>
+
+                        {/* Submit Button */}
+                        <div>
+                            <button
+                                type="submit"
+                                className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
+                            >
+                                Submit Request
+                            </button>
+                        </div>
+                    </form>
+                </motion.div>
             </motion.div>
         </div>
     );

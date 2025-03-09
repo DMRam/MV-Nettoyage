@@ -7,6 +7,10 @@ import { ScrollToTop } from './utils/scrolling/ScrollTop';
 import { CookieConsent } from './components/cookies/CookieBanner';
 import { ContactUs } from './components/contact/ContactUs';
 import { NavBar } from './components/navbar/NavBar';
+import { Provider } from 'react-redux';
+import store from './store';
+import { Footer } from './components/footer/Footer';
+
 
 export const App = () => {
   return (
@@ -29,5 +33,6 @@ export const App = () => {
       </div>
       <ContactUs />
     </>
+
   );
 };

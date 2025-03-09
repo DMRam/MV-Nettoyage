@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "./Modal";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; // For animations
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 
 // Dummy translation data for each language
 const translations: any = {
@@ -106,13 +107,15 @@ const translations: any = {
   },
 };
 
-export const ServicesSection = ({ language = '⚜️ FR' }) => {
+export const ServicesSection = () => {
+  // Language and dropdown state
+  const { languageSelected } = useLanguageSelector()
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<any>(null);
   const navigate = useNavigate();
 
   // Get the current translations based on the selected language
-  const currentTranslations = translations[language];
+  const currentTranslations = translations[languageSelected];
 
   const openModal = (service: any) => {
     setSelectedService(service);
@@ -167,7 +170,7 @@ export const ServicesSection = ({ language = '⚜️ FR' }) => {
                 {service.title}
               </h3>
               <p className="text-lg text-gray-600 mb-6">{service.description}</p>
-              <p className="text-sm text-gray-500 italic">Learn more →</p>
+              <p className="text-sm text-gray-500 italic">{languageSelected === '🇨🇦 EN' ? 'Learn more' : languageSelected === '🇨🇱 ES' ? "Saber mas" : "Savoir plus"} →</p>
             </div>
           </motion.div>
         ))}

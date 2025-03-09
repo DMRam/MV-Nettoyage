@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CleaningEstimateModal } from "../modals/EstimateModal";
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 
 const images = [
   "https://koala.sh/api/image/v2-5r9ff-1pquq.jpg?width=1344&height=768&dream",
@@ -16,19 +17,19 @@ const imageVariants = {
 };
 
 const translations: any = {
-  fr: {
+  '⚜️ FR': {
     title: "Services de Nettoyage Professionnels à Sherbrooke",
     description:
       "Offrez à votre maison ou entreprise un environnement propre et sain grâce à nos services de nettoyage professionnels à Sherbrooke. Nous utilisons des produits écologiques et des techniques efficaces pour garantir des résultats impeccables.",
     button: "Obtenez une Estimation Immédiate"
   },
-  en: {
+  '🇨🇦 EN': {
     title: "Professional Cleaning Services in Sherbrooke",
     description:
       "Give your home or business a clean and healthy environment with our professional cleaning services in Sherbrooke. We use eco-friendly products and effective techniques to ensure spotless results.",
     button: "Get an Instant Estimate"
   },
-  es: {
+  '🇨🇱 ES': {
     title: "Servicios de Limpieza Profesional en Sherbrooke",
     description:
       "Brinde a su hogar o negocio un ambiente limpio y saludable con nuestros servicios de limpieza profesional en Sherbrooke. Utilizamos productos ecológicos y técnicas efectivas para garantizar resultados impecables.",
@@ -37,9 +38,10 @@ const translations: any = {
 };
 
 export default function HeroSection() {
+  // Language and dropdown state
+  const { languageSelected } = useLanguageSelector()
   const [index, setIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [language, setLanguage] = useState("fr");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,27 +82,20 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/10" />
       </div>
 
-      {/* Language Selector */}
-      <div className="absolute top-6 right-6 flex space-x-3">
-        <button onClick={() => setLanguage("en")} className="p-1 bg-white rounded-full shadow-md">🇬🇧</button>
-        <button onClick={() => setLanguage("fr")} className="p-1 bg-white rounded-full shadow-md">🇫🇷</button>
-        <button onClick={() => setLanguage("es")} className="p-1 bg-white rounded-full shadow-md">🇪🇸</button>
-      </div>
-
       {/* Content */}
       <div className="relative z-10 max-w-2xl bg-gray-400 opacity-70 p-6 md:p-8 rounded-lg shadow-xl w-11/12 sm:w-4/5 lg:w-2/3">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-2xl">
-          {translations[language].title}
+          {translations[languageSelected].title}
         </h1>
         <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-700 drop-shadow-md">
-          {translations[language].description}
+          {translations[languageSelected].description}
         </p>
 
         <button
           onClick={() => setIsModalOpen(true)}
           className="mt-6 sm:mt-8 px-6 sm:px-10 py-3 sm:py-4 bg-yellow-500 text-blue-700 font-bold rounded-full shadow-lg hover:bg-yellow-400 hover:scale-105 transition-all duration-300"
         >
-          {translations[language].button}
+          {translations[languageSelected].button}
         </button>
       </div>
 

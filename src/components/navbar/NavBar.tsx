@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from '../../assets/logo/logo_ecoserv.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguageSelector } from '../../hooks/useLanguageSelector';
 
 // Dummy translation data for each language
 const translations: any = {
@@ -32,8 +33,10 @@ const translations: any = {
 };
 
 export const NavBar = () => {
+    // Language and dropdown state
+    const { languageSelected, onChangeLanguage } = useLanguageSelector()
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [language, setLanguage] = useState('🇨🇦 EN'); // Default language
+    const [language, setLanguage] = useState(languageSelected || "⚜️ FR"); // Default language
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [visible, setVisible] = useState(true); // Track navbar visibility based on scroll
 
@@ -44,6 +47,7 @@ export const NavBar = () => {
 
     const changeLanguage = (lang: string) => {
         setLanguage(lang);
+        onChangeLanguage(lang)
         setIsDropdownOpen(false); // Close dropdown when a language is selected
     };
 

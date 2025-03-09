@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // For animations
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 
 // Dummy translation data for each language
 const translations: any = {
@@ -89,7 +90,9 @@ const translations: any = {
     },
 };
 
-export const ContactUs = ({ language = '⚜️ FR' }) => {
+export const ContactUs = () => {
+    // Language and dropdown state
+    const { languageSelected } = useLanguageSelector()
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -99,7 +102,7 @@ export const ContactUs = ({ language = '⚜️ FR' }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Get the current translations based on the selected language
-    const currentTranslations = translations[language];
+    const currentTranslations = translations[languageSelected];
 
     const handleChange = (e: { target: { name: any; value: any } }) => {
         const { name, value } = e.target;

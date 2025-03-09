@@ -8,18 +8,21 @@ import { OurServiceDetail } from "./components/details/OurServiceDetail";
 import { Footer } from "./components/footer/Footer.tsx";
 import { CookiePolicy } from "./components/cookies/CookiePolicy.tsx";
 import { ScrollToTop } from "./utils/scrolling/ScrollTop.tsx";
+import { Provider } from "react-redux";
+import store from "./store/index.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/service/:title" element={<OurServiceDetail />} />
-        <Route path="cookie-policy" element={<CookiePolicy />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/service/:title" element={<OurServiceDetail />} />
+          <Route path="cookie-policy" element={<CookiePolicy />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   </React.StrictMode>
 );

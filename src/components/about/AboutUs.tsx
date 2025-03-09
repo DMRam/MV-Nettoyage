@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 
 // Dummy translation data for each language
 const translations: any = {
@@ -70,9 +71,11 @@ const translations: any = {
   }
 };
 
-export const AboutUs = ({ language = '⚜️ FR' }) => {
+export const AboutUs = () => {
   // Get the current translations based on the selected language
-  const currentTranslations = translations[language];
+  // Language and dropdown state
+  const { languageSelected } = useLanguageSelector()
+  const currentTranslations = translations[languageSelected];
 
   return (
     <section

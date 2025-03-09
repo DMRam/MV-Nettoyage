@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 
 type ModalProps = {
     isOpen: boolean;
@@ -13,8 +14,8 @@ type AdditionalOptions = {
 };
 
 // Language configuration
-const translations = {
-    en: {
+const translations: any = {
+    "🇨🇦 EN": {
         title: "Cleaning Services Estimate",
         description: "Fill in the details to get an accurate cleaning estimate.",
         measurementUnit: "Measurement Unit:",
@@ -42,7 +43,7 @@ const translations = {
         message_recalculate: "➡️ The estimated price updates automatically when quantities change.",
         message_final_price: "➡️ This estimate is for reference only and does not constitute the final price."
     },
-    fr: {
+    "⚜️ FR": {
         title: "Estimation des Services de Nettoyage",
         description: "Remplissez les détails pour obtenir une estimation précise.",
         measurementUnit: "Unité de mesure :",
@@ -70,7 +71,7 @@ const translations = {
         message_recalculate: "➡️ Le prix estimé est recalculé automatiquement lorsque les quantités changent.",
         message_final_price: "➡️ Cette estimation est fournie à titre indicatif et ne constitue pas un prix final."
     },
-    es: {
+    "🇨🇱 ES": {
         title: "Estimación de Servicios de Limpieza",
         description: "Complete los detalles para obtener una estimación precisa.",
         measurementUnit: "Unidad de medida:",
@@ -100,11 +101,11 @@ const translations = {
     },
 };
 
-// Hardcoded language for now (can be replaced with Redux state)
-const currentLanguage = "fr"; // Change to 'en' or 'es' for other languages
-const t = translations[currentLanguage];
-
 export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+
+    // Language and dropdown state
+    const { languageSelected } = useLanguageSelector()
+    const t = translations[languageSelected];
     const [area, setArea] = useState<number | null>(null);
     const [displayArea, setDisplayArea] = useState("");
     const [isMetric, setIsMetric] = useState(false);

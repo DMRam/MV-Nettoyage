@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguageSelector } from '../../hooks/useLanguageSelector';
 
 // Dummy translation data for each language
 const translations: any = {
@@ -46,9 +47,11 @@ const translations: any = {
     },
 };
 
-export const Footer = ({ language = '⚜️ FR' }) => {
+export const Footer = () => {
+    // Language and dropdown state
+    const { languageSelected } = useLanguageSelector()
     // Get the current translations based on the selected language
-    const currentTranslations = translations[language];
+    const currentTranslations = translations[languageSelected];
 
     return (
         <footer className="bg-blue-600 text-white py-8 mt-16">
