@@ -31,8 +31,9 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
     const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
     const [image, setImage] = useState<File | null>(null);
     const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [showEstimate, setShowEstimate] = useState(false);
-    const [errors, setErrors] = useState<{ area?: string; email?: string }>({});
+    const [errors, setErrors] = useState<{ area?: string; email?: string; phoneNumber?: string }>({});
     const [isLoading, setIsLoading] = useState(false);
     const [isSent, setIsSent] = useState(false);
     const [note, setNote] = useState("");
@@ -62,20 +63,43 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
+    // Separate function to validate the phone number
+    const validatePhoneNumber = (phoneNumber: string): string | undefined => {
+        if (!phoneNumber) {
+            return t.phoneNumberError || "Phone number is required.";
+        }
+        if (!/^\d{10}$/.test(phoneNumber)) {
+            return t.phoneNumberError || "Please enter a valid 10-digit phone number.";
+        }
+        return undefined; // No error
+    };
+
     const validateInputs = () => {
-        const newErrors: { area?: string; email?: string } = {};
+        const newErrors: { area?: string; email?: string; phoneNumber?: string } = {};
+
+        // Validate area
         if (area === null || area <= 0) {
             newErrors.area = t.areaError;
         }
-        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            newErrors.email = t.emailError;
+
+        // Validate email
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            newErrors.email = t.emailError || "Please enter a valid email address.";
         }
+
+        // Validate phone number using the separate function
+        const phoneNumberError = validatePhoneNumber(phoneNumber);
+        if (phoneNumberError) {
+            newErrors.phoneNumber = phoneNumberError;
+        }
+
+        console.log("Validation Errors:", newErrors); // Debugging
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const calculateEstimate = () => {
-        if (!validateInputs()) return;
+        console.log("Calculate Estimate button clicked"); // Debugging
 
         const basePrice =
             cleaningType === "basic" ? 0.25 : cleaningType === "standard" ? 0.35 : 0.45;
@@ -88,22 +112,22 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
 
         setEstimatedCost(parseFloat(estimate.toFixed(2)));
         setShowEstimate(true);
+        console.log("Estimate calculated:", estimate); // Debugging
     };
 
-    useEffect(() => {
-        if (area !== null && area > 0) {
-            calculateEstimate();
-        }
-    }, [area, cleaningType, additionalOptions, isMetric]);
-
     const sendForValidation = async () => {
-        if (!validateInputs()) return;
+        console.log("Send for Validation button clicked"); // Debugging
+        if (!validateInputs()) {
+            console.log("Validation failed. Cannot send form."); // Debugging
+            return;
+        }
 
         setIsLoading(true);
         try {
             const emailData = {
                 from_name: "Cleaning Estimate",
                 from_email: email,
+                phoneNumber: phoneNumber,
                 area: `${displayArea} ${isMetric ? "m²" : "ft²"}`,
                 cleaning_type: cleaningType,
                 deepCleaning: additionalOptions.deepCleaning ? "Yes" : "No",
@@ -111,7 +135,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                 windowCleaning: additionalOptions.windowCleaning ? "Yes" : "No",
                 estimated_cost: estimatedCost?.toLocaleString(),
                 note: note,
-                // image: image ? await toBase64(image) : null,
             };
 
             await emailjs.send(
@@ -122,11 +145,11 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             );
 
             setIsSent(true);
-            alert(t.successMessage || "Your request was sent successfully!"); // Fallback message
+            alert(t.successMessage || "Your request was sent successfully!");
             onClose();
         } catch (error) {
             console.error("Error sending estimate:", error);
-            alert(t.errorMessage || "An error occurred. Please try again."); // Fallback message
+            alert(t.errorMessage || "An error occurred. Please try again.");
         } finally {
             setIsLoading(false);
         }
@@ -157,13 +180,13 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             setEstimatedCost(null);
             setImage(null);
             setEmail("");
+            setPhoneNumber("");
             setShowEstimate(false);
             setErrors({});
             setIsSent(false);
             setNote("");
         }
     }, [isOpen]);
-
 
     return (
         <AnimatePresence>
@@ -194,13 +217,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                         <h2 className="text-xl font-bold text-gray-800">{t.title}</h2>
                         <p className="text-gray-600 mt-2">{t.description}</p>
 
-                        <form
-                            className="mt-4 space-y-4"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                calculateEstimate();
-                            }}
-                        >
+                        <form className="mt-4 space-y-4">
                             {/* Measurement Unit */}
                             <div className="flex items-center justify-between">
                                 <label className="text-gray-950">{t.measurementUnit} {isMetric ? "m²" : "ft²"}</label>
@@ -271,8 +288,8 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 </div>
                             </div>
 
-                            {/* Image Upload */}
-                            <div>
+                            {/* Image Upload - this can be done with Firestore */}
+                            {/* <div>
                                 <label className="font-medium text-gray-800">{t.uploadImage}</label>
                                 <input
                                     type="file"
@@ -281,7 +298,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                     className="mt-1"
                                 />
                                 {image && <p className="text-green-600 mt-1">Image uploaded: {image.name}</p>}
-                            </div>
+                            </div> */}
 
                             {/* Estimate Review and Confirmation */}
                             {!showEstimate ? (
@@ -294,12 +311,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 </button>
                             ) : (
                                 <>
-                                    <textarea
-                                        value={note}
-                                        onChange={(e) => setNote(e.target.value)}
-                                        placeholder={t.addNote}
-                                        className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                    />
                                     <motion.div
                                         className="mt-4 p-4 bg-green-50 border border-green-300 text-green-800 rounded-lg shadow-sm"
                                         initial={{ scale: 0.9, opacity: 0 }}
@@ -316,6 +327,13 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                             {t.message_final_price}
                                         </p>
                                     </motion.div>
+                                    <textarea
+                                        value={note}
+                                        onChange={(e) => setNote(e.target.value)}
+                                        placeholder={t.addNote}
+                                        className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                    />
+
 
                                     {/* Email Input */}
                                     <div>
@@ -334,6 +352,25 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                             </p>
                                         )}
                                     </div>
+
+                                    {/* Phone Number Input */}
+                                    <div>
+                                        <input
+                                            type="tel"
+                                            value={phoneNumber}
+                                            onChange={(e) => setPhoneNumber(e.target.value)}
+                                            placeholder={t.phonePlaceholder || "Phone Number"}
+                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                            aria-invalid={!!errors.phoneNumber}
+                                            aria-describedby="phoneError"
+                                        />
+                                        {errors.phoneNumber && (
+                                            <p id="phoneError" className="text-red-500 text-sm mt-1">
+                                                {errors.phoneNumber}
+                                            </p>
+                                        )}
+                                    </div>
+
                                     <button
                                         type="button"
                                         onClick={sendForValidation}
