@@ -6,8 +6,8 @@ import { hero_images, hero_translations } from "./HeroTranslations";
 
 const imageVariants = {
   hidden: { opacity: 0, scale: 1.05 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 2.5, ease: "easeOut" } },
-  exit: { opacity: 0, scale: 1.05, transition: { duration: 2.5, ease: "easeInOut" } }
+  visible: { opacity: 1, scale: 1, transition: { duration: 3.5, ease: "easeOut" } },
+  exit: { opacity: 0, scale: 1.05, transition: { duration: 3.5, ease: "easeInOut" } }
 };
 
 

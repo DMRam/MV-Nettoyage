@@ -51,6 +51,7 @@ export const OurServiceDetail = () => {
         phoneLabel,
         messageLabel,
         submitButton,
+        includedServicesTitle, // Add this to your translations file
     } = service_detail_translations[languageSelected] || service_detail_translations["⚜️ FR"]; // Fallback to English
 
     return (
@@ -88,6 +89,20 @@ export const OurServiceDetail = () => {
                 >
                     {service.description}
                 </motion.p>
+
+                {/* Included Services Section */}
+                {service.details && (
+                    <motion.div className="mb-8" variants={containerVariants}>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                            {includedServicesTitle}
+                        </h2>
+                        <ul className="list-disc list-inside text-gray-700 space-y-2">
+                            {service.details.map((detail: string, index: number) => (
+                                <li key={index}>{detail}</li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
 
                 {/* Contact Form for Service Request */}
                 <motion.div className="mt-12" variants={containerVariants}>
