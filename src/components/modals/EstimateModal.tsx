@@ -138,7 +138,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             };
 
             await emailjs.send(
-                estimate_email_credentials.sevice_key,
+                estimate_email_credentials.service_key,
                 estimate_email_credentials.template_key,
                 emailData,
                 estimate_email_credentials.email_key

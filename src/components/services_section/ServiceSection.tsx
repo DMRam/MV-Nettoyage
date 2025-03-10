@@ -26,8 +26,8 @@ export const ServicesSection = () => {
         {currentTranslations.sectionTitle}
       </h2>
       <div
-        style={{ margin: 20 }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-12"
+        style={{ margin: 10 }} // Reduced margin around the grid container
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-4" // Reduced gap between grid items
       >
         {currentTranslations.services.map((service: any, index: number) => (
           <motion.div

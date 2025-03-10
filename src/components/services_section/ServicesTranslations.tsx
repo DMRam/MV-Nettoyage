@@ -5,9 +5,8 @@ export const services_translations: any = {
             {
                 title: "Office Cleaning",
                 description:
-                    "Keep your office spaces spotless and professional with our tailored cleaning services. We ensure a clean, healthy, and productive environment for your employees and visitors. Our services include dusting, vacuuming, restroom sanitization, and more.",
-                image:
-                    "https://example.com/office-cleaning.jpg", // Replace with actual image link
+                    "Transform your workplace into a spotless, professional environment that boosts productivity and impresses clients. Our tailored office cleaning services ensure every corner is pristine, from desks to restrooms, so you can focus on what matters most—your business.",
+                image: "https://example.com/office-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Dusting and wiping desks, shelves, and surfaces.",
                     "Vacuuming and mopping floors.",
@@ -17,13 +16,13 @@ export const services_translations: any = {
                     "Disinfecting high-touch areas (door handles, light switches, etc.).",
                     "Restocking restroom supplies (soap, paper towels, etc.).",
                 ],
+                cta: "Request a Customized Cleaning Plan for Your Office →",
             },
             {
                 title: "Commercial Cleaning",
                 description:
-                    "Comprehensive cleaning solutions for businesses of all sizes. From lobbies to restrooms, we ensure every corner of your commercial space is pristine and welcoming. Our services include floor care, trash removal, and high-dusting.",
-                image:
-                    "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/commercial-cleaning.jpg?alt=media&token=3d8b42be-8e02-4510-b38f-e8b19012946a",
+                    "From lobbies to restrooms, we provide comprehensive cleaning solutions for businesses of all sizes. Our services are designed to create a welcoming, hygienic environment that reflects your brand’s professionalism and care.",
+                image: "https://example.com/commercial-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Lobby and entrance cleaning.",
                     "Restroom sanitization and restocking.",
@@ -33,13 +32,13 @@ export const services_translations: any = {
                     "Kitchen and breakroom cleaning.",
                     "Disinfecting high-touch areas (elevator buttons, handrails, etc.).",
                 ],
+                cta: "Get a Free Quote for Your Commercial Space →",
             },
             {
                 title: "Airbnb Cleaning",
                 description:
-                    "Impress your guests with immaculate Airbnb spaces. Our thorough cleaning services ensure your property is guest-ready, with fresh linens, sanitized surfaces, and a welcoming atmosphere. We handle everything from bed-making to kitchen cleaning.",
-                image:
-                    "https://example.com/airbnb-cleaning.jpg", // Replace with actual image link
+                    "Impress your guests with immaculate Airbnb spaces. Our thorough cleaning services ensure your property is guest-ready, with fresh linens, sanitized surfaces, and a welcoming atmosphere. Perfect for hosts who value quality and reliability.",
+                image: "https://example.com/airbnb-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Changing linens and making beds.",
                     "Vacuuming and mopping floors.",
@@ -49,13 +48,13 @@ export const services_translations: any = {
                     "Disinfecting high-touch areas (remote controls, light switches, etc.).",
                     "Taking out trash and recycling.",
                 ],
+                cta: "Schedule Your Airbnb Cleaning Today →",
             },
             {
                 title: "Condo Cleaning & Maintenance",
                 description:
-                    "Specialized cleaning and maintenance services for condominiums. We handle everything from high-pressure washing to interior cleaning, ensuring your property remains in top condition. Our services include deep cleaning, window washing, and minor repairs.",
-                image:
-                    "https://example.com/condo-cleaning.jpg", // Replace with actual image link
+                    "Keep your condominium in top condition with our specialized cleaning and maintenance services. From high-pressure washing to interior deep cleaning, we handle it all, ensuring your property remains pristine and well-maintained.",
+                image: "https://example.com/condo-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Interior cleaning (dusting, vacuuming, mopping).",
                     "High-pressure washing for balconies and exteriors.",
@@ -65,13 +64,13 @@ export const services_translations: any = {
                     "Minor repairs and maintenance tasks.",
                     "Trash removal and recycling.",
                 ],
+                cta: "Customize Your Condo Cleaning Plan →",
             },
             {
                 title: "Handyman Services",
                 description:
-                    "Expert maintenance and repair services for residential and commercial properties. From fixing leaky faucets to assembling furniture, we’ve got you covered. Our services include plumbing, electrical, and general repairs.",
-                image:
-                    "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/handyman-services.jpg?alt=media&token=817cc277-6bcb-402d-a334-5c63fb6a7d31",
+                    "From fixing leaky faucets to assembling furniture, our expert handyman services are here to save you time and hassle. Whether it’s a residential or commercial property, we’ve got you covered with reliable, high-quality repairs.",
+                image: "https://example.com/handyman-services.jpg", // Replace with actual image link
                 details: [
                     "Plumbing repairs (leaky faucets, clogged drains).",
                     "Electrical fixes (light installations, outlet repairs).",
@@ -81,13 +80,13 @@ export const services_translations: any = {
                     "General maintenance tasks.",
                     "Appliance installation and repairs.",
                 ],
+                cta: "Book a Handyman Service Now →",
             },
             {
                 title: "Outdoor Cleaning & Maintenance",
                 description:
-                    "Revitalize your outdoor spaces with our high-pressure cleaning, patio maintenance, and landscaping services. Perfect for driveways, sidewalks, and outdoor seating areas. We ensure your property looks its best year-round.",
-                image:
-                    "https://example.com/outdoor-cleaning.jpg", // Replace with actual image link
+                    "Revitalize your outdoor spaces with our high-pressure cleaning, patio maintenance, and landscaping services. Perfect for driveways, sidewalks, and outdoor seating areas, we ensure your property looks its best year-round.",
+                image: "https://example.com/outdoor-cleaning.jpg", // Replace with actual image link
                 details: [
                     "High-pressure washing for driveways and walkways.",
                     "Patio and deck cleaning.",
@@ -97,13 +96,13 @@ export const services_translations: any = {
                     "Exterior window washing.",
                     "Weed removal and garden maintenance.",
                 ],
+                cta: "Request a Free Outdoor Cleaning Consultation →",
             },
             {
                 title: "Retail Store Cleaning",
                 description:
-                    "Enhance your retail space with our specialized cleaning services. We ensure your store is clean, organized, and inviting, creating a positive shopping experience for your customers. Our services include floor polishing, display cleaning, and more.",
-                image:
-                    "https://example.com/retail-cleaning.jpg", // Replace with actual image link
+                    "Enhance your retail space with our specialized cleaning services. We ensure your store is clean, organized, and inviting, creating a positive shopping experience for your customers. From floor polishing to display cleaning, we’ve got you covered.",
+                image: "https://example.com/retail-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Floor cleaning and polishing.",
                     "Dusting and wiping shelves and displays.",
@@ -113,13 +112,13 @@ export const services_translations: any = {
                     "High-touch surface disinfection.",
                     "Stockroom organization and cleaning.",
                 ],
+                cta: "Get a Custom Cleaning Plan for Your Store →",
             },
             {
                 title: "Pre-Move Cleaning",
                 description:
-                    "Make moving stress-free with our pre-move cleaning services. We ensure your new or vacated space is spotless, sanitized, and ready for the next chapter. Our services include deep cleaning, carpet cleaning, and final walkthroughs.",
-                image:
-                    "https://example.com/pre-move-cleaning.jpg", // Replace with actual image link
+                    "Make moving stress-free with our pre-move cleaning services. Whether you’re moving in or out, we ensure your space is spotless, sanitized, and ready for the next chapter. Our services include deep cleaning, carpet cleaning, and final walkthroughs.",
+                image: "https://example.com/pre-move-cleaning.jpg", // Replace with actual image link
                 details: [
                     "Deep cleaning of all rooms.",
                     "Carpet and floor cleaning.",
@@ -129,6 +128,7 @@ export const services_translations: any = {
                     "Trash removal and final walkthrough.",
                     "Disinfecting high-touch areas.",
                 ],
+                cta: "Schedule Your Pre-Move Cleaning Today →",
             },
         ],
     },
@@ -138,9 +138,8 @@ export const services_translations: any = {
             {
                 title: "Nettoyage de bureaux",
                 description:
-                    "Maintenez vos espaces de bureau impeccables et professionnels avec nos services de nettoyage sur mesure. Nous garantissons un environnement propre, sain et productif pour vos employés et visiteurs. Nos services incluent le dépoussiérage, l’aspiration, la désinfection des toilettes, et plus encore.",
-                image:
-                    "https://example.com/office-cleaning-fr.jpg", // Replace with actual image link
+                    "Transformez votre espace de travail en un environnement impeccable et professionnel qui stimule la productivité et impressionne vos clients. Nos services de nettoyage de bureaux sur mesure garantissent que chaque coin est parfait, des bureaux aux toilettes, pour que vous puissiez vous concentrer sur l’essentiel : votre entreprise.",
+                image: "https://example.com/office-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Dépoussiérage et essuyage des bureaux, étagères et surfaces.",
                     "Aspiration et lavage des sols.",
@@ -150,13 +149,13 @@ export const services_translations: any = {
                     "Désinfection des zones fréquemment touchées (poignées de porte, interrupteurs, etc.).",
                     "Réapprovisionnement des fournitures de toilettes (savon, essuie-mains, etc.).",
                 ],
+                cta: "Demandez un plan de nettoyage personnalisé pour votre bureau →",
             },
             {
                 title: "Nettoyage commercial",
                 description:
-                    "Solutions de nettoyage complètes pour les entreprises de toutes tailles. Des lobbys aux toilettes, nous veillons à ce que chaque coin de votre espace commercial soit impeccable et accueillant. Nos services incluent l’entretien des sols, l’enlèvement des déchets et le dépoussiérage en hauteur.",
-                image:
-                    "https://gravitemedia.s3.ca-central-1.amazonaws.com/47/2021/01/Depositphotos_34294849_l-2015.jpg",
+                    "Des lobbys aux toilettes, nous offrons des solutions de nettoyage complètes pour les entreprises de toutes tailles. Nos services sont conçus pour créer un environnement accueillant et hygiénique qui reflète le professionnalisme et le soin de votre marque.",
+                image: "https://example.com/commercial-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Nettoyage du hall d’entrée et des espaces communs.",
                     "Désinfection et réapprovisionnement des toilettes.",
@@ -166,13 +165,13 @@ export const services_translations: any = {
                     "Nettoyage de la cuisine et de la salle de pause.",
                     "Désinfection des zones fréquemment touchées (boutons d’ascenseur, rampes, etc.).",
                 ],
+                cta: "Obtenez un devis gratuit pour votre espace commercial →",
             },
             {
                 title: "Nettoyage Airbnb",
                 description:
-                    "Impressionnez vos invités avec des espaces Airbnb immaculés. Nos services de nettoyage approfondis garantissent que votre propriété est prête à accueillir des invités, avec des draps frais, des surfaces désinfectées et une atmosphère accueillante. Nous nous occupons de tout, du changement de linge au nettoyage de la cuisine.",
-                image:
-                    "https://example.com/airbnb-cleaning-fr.jpg", // Replace with actual image link
+                    "Impressionnez vos invités avec des espaces Airbnb immaculés. Nos services de nettoyage approfondis garantissent que votre propriété est prête à accueillir des invités, avec des draps frais, des surfaces désinfectées et une atmosphère accueillante. Idéal pour les hôtes qui valorisent la qualité et la fiabilité.",
+                image: "https://example.com/airbnb-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Changement de linge et préparation des lits.",
                     "Aspiration et lavage des sols.",
@@ -182,13 +181,13 @@ export const services_translations: any = {
                     "Désinfection des zones fréquemment touchées (télécommandes, interrupteurs, etc.).",
                     "Enlèvement des déchets et du recyclage.",
                 ],
+                cta: "Planifiez votre nettoyage Airbnb dès aujourd’hui →",
             },
             {
                 title: "Nettoyage et entretien de condos",
                 description:
-                    "Services spécialisés de nettoyage et d’entretien pour condominiums. Nous nous occupons de tout, du lavage haute pression au nettoyage intérieur, pour maintenir votre propriété en parfait état. Nos services incluent le nettoyage en profondeur, le lavage des fenêtres et les réparations mineures.",
-                image:
-                    "https://example.com/condo-cleaning-fr.jpg", // Replace with actual image link
+                    "Maintenez votre condominium en parfait état avec nos services spécialisés de nettoyage et d’entretien. Du lavage haute pression au nettoyage intérieur en profondeur, nous nous occupons de tout pour que votre propriété reste impeccable et bien entretenue.",
+                image: "https://example.com/condo-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Nettoyage intérieur (dépoussiérage, aspiration, lavage des sols).",
                     "Lavage haute pression pour les balcons et les extérieurs.",
@@ -198,13 +197,13 @@ export const services_translations: any = {
                     "Réparations mineures et tâches d’entretien.",
                     "Enlèvement des déchets et du recyclage.",
                 ],
+                cta: "Personnalisez votre plan de nettoyage pour condo →",
             },
             {
                 title: "Services de bricolage",
                 description:
-                    "Services experts de maintenance et de réparation pour les propriétés résidentielles et commerciales. De la réparation de robinets qui fuient à l’assemblage de meubles, nous sommes là pour vous. Nos services incluent la plomberie, l’électricité et les réparations générales.",
-                image:
-                    "https://kaizenaire.com/wp-content/uploads/2023/12/Commercial-Cleaning-Services-in-Singapore-Keeping-Your-Business-Sparkling-Clean-1024x585.jpg",
+                    "De la réparation de robinets qui fuient à l’assemblage de meubles, nos services de bricolage sont là pour vous faire gagner du temps et vous simplifier la vie. Que ce soit pour une propriété résidentielle ou commerciale, nous offrons des réparations fiables et de haute qualité.",
+                image: "https://example.com/handyman-services-fr.jpg", // Replace with actual image link
                 details: [
                     "Réparations de plomberie (robinets qui fuient, canalisations bouchées).",
                     "Réparations électriques (installation de luminaires, réparation de prises).",
@@ -214,13 +213,13 @@ export const services_translations: any = {
                     "Tâches d’entretien général.",
                     "Installation et réparation d’appareils.",
                 ],
+                cta: "Réservez un service de bricolage dès maintenant →",
             },
             {
                 title: "Nettoyage et entretien extérieur",
                 description:
-                    "Revitalisez vos espaces extérieurs avec notre nettoyage haute pression, l’entretien des patios et les services d’aménagement paysager. Parfait pour les allées, les trottoirs et les zones de sièges extérieures. Nous veillons à ce que votre propriété soit impeccable toute l’année.",
-                image:
-                    "https://example.com/outdoor-cleaning-fr.jpg", // Replace with actual image link
+                    "Revitalisez vos espaces extérieurs avec notre service de nettoyage haute pression, d’entretien des patios et de paysagisme. Parfait pour les allées, les trottoirs et les zones de sièges extérieures, nous veillons à ce que votre propriété soit impeccable toute l’année.",
+                image: "https://example.com/outdoor-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Lavage haute pression pour les allées et les trottoirs.",
                     "Nettoyage des patios et des terrasses.",
@@ -230,13 +229,13 @@ export const services_translations: any = {
                     "Lavage des fenêtres extérieures.",
                     "Désherbage et entretien des jardins.",
                 ],
+                cta: "Demandez une consultation gratuite pour le nettoyage extérieur →",
             },
             {
                 title: "Nettoyage de magasins de détail",
                 description:
-                    "Améliorez votre espace de vente au détail avec nos services de nettoyage spécialisés. Nous veillons à ce que votre magasin soit propre, organisé et accueillant, créant une expérience d’achat positive pour vos clients. Nos services incluent le polissage des sols, le nettoyage des vitrines, et plus encore.",
-                image:
-                    "https://example.com/retail-cleaning-fr.jpg", // Replace with actual image link
+                    "Améliorez votre espace de vente au détail avec nos services de nettoyage spécialisés. Nous veillons à ce que votre magasin soit propre, organisé et accueillant, créant une expérience d’achat positive pour vos clients. Du polissage des sols au nettoyage des vitrines, nous sommes là pour vous.",
+                image: "https://example.com/retail-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Nettoyage et polissage des sols.",
                     "Dépoussiérage et essuyage des étagères et des présentoirs.",
@@ -246,13 +245,13 @@ export const services_translations: any = {
                     "Désinfection des surfaces fréquemment touchées.",
                     "Organisation et nettoyage des réserves.",
                 ],
+                cta: "Obtenez un plan de nettoyage personnalisé pour votre magasin →",
             },
             {
                 title: "Nettoyage avant déménagement",
                 description:
-                    "Simplifiez votre déménagement avec notre service de nettoyage pré-déménagement. Nous garantissons un espace propre, désinfecté et prêt pour un nouveau départ. Nos services incluent le nettoyage en profondeur, le nettoyage des tapis et une inspection finale.",
-                image:
-                    "https://example.com/pre-move-cleaning-fr.jpg", // Replace with actual image link
+                    "Simplifiez votre déménagement avec notre service de nettoyage pré-déménagement. Que vous emménagiez ou déménagiez, nous garantissons un espace impeccable, désinfecté et prêt pour un nouveau départ. Nos services incluent le nettoyage en profondeur, le nettoyage des tapis et une inspection finale.",
+                image: "https://example.com/pre-move-cleaning-fr.jpg", // Replace with actual image link
                 details: [
                     "Nettoyage en profondeur de toutes les pièces.",
                     "Nettoyage des tapis et des sols.",
@@ -262,6 +261,7 @@ export const services_translations: any = {
                     "Enlèvement des déchets et inspection finale.",
                     "Désinfection des zones fréquemment touchées.",
                 ],
+                cta: "Planifiez votre nettoyage pré-déménagement dès aujourd’hui →",
             },
         ],
     },
@@ -271,9 +271,8 @@ export const services_translations: any = {
             {
                 title: "Limpieza de oficinas",
                 description:
-                    "Mantén tus espacios de oficina impecables y profesionales con nuestros servicios de limpieza personalizados. Garantizamos un ambiente limpio, saludable y productivo para tus empleados y visitantes. Nuestros servicios incluyen desempolvado, aspiración, desinfección de baños y más.",
-                image:
-                    "https://example.com/office-cleaning-es.jpg", // Replace with actual image link
+                    "Transforma tu espacio de trabajo en un entorno impecable y profesional que impulse la productividad e impresione a tus clientes. Nuestros servicios de limpieza de oficinas personalizados garantizan que cada rincón esté perfecto, desde los escritorios hasta los baños, para que puedas concentrarte en lo que más importa: tu negocio.",
+                image: "https://example.com/office-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Desempolvado y limpieza de escritorios, estantes y superficies.",
                     "Aspiración y trapeado de pisos.",
@@ -283,13 +282,13 @@ export const services_translations: any = {
                     "Desinfección de áreas de alto contacto (manijas de puertas, interruptores, etc.).",
                     "Reabastecimiento de suministros de baño (jabón, toallas de papel, etc.).",
                 ],
+                cta: "Solicita un plan de limpieza personalizado para tu oficina →",
             },
             {
                 title: "Limpieza comercial",
                 description:
-                    "Soluciones de limpieza integrales para empresas de todos los tamaños. Desde los lobbies hasta los baños, nos aseguramos de que cada rincón de tu espacio comercial esté impecable y acogedor. Nuestros servicios incluyen cuidado de pisos, eliminación de basura y desempolvado en altura.",
-                image:
-                    "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/commercial-cleaning.jpg?alt=media&token=3d8b42be-8e02-4510-b38f-e8b19012946a",
+                    "Desde los lobbies hasta los baños, ofrecemos soluciones de limpieza integrales para empresas de todos los tamaños. Nuestros servicios están diseñados para crear un ambiente acogedor e higiénico que refleje el profesionalismo y cuidado de tu marca.",
+                image: "https://example.com/commercial-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Limpieza del lobby y áreas comunes.",
                     "Desinfección y reabastecimiento de baños.",
@@ -299,13 +298,13 @@ export const services_translations: any = {
                     "Limpieza de cocinas y áreas de descanso.",
                     "Desinfección de áreas de alto contacto (botones de ascensor, pasamanos, etc.).",
                 ],
+                cta: "Obtén una cotización gratuita para tu espacio comercial →",
             },
             {
                 title: "Limpieza de Airbnb",
                 description:
-                    "Impressiona a tus huéspedes con espacios Airbnb impecables. Nuestros servicios de limpieza profunda garantizan que tu propiedad esté lista para recibir huéspedes, con sábanas frescas, superficies desinfectadas y un ambiente acogedor. Nos encargamos de todo, desde el cambio de ropa de cama hasta la limpieza de la cocina.",
-                image:
-                    "https://example.com/airbnb-cleaning-es.jpg", // Replace with actual image link
+                    "Impressiona a tus huéspedes con espacios Airbnb impecables. Nuestros servicios de limpieza profunda garantizan que tu propiedad esté lista para recibir huéspedes, con sábanas frescas, superficies desinfectadas y un ambiente acogedor. Ideal para anfitriones que valoran la calidad y la fiabilidad.",
+                image: "https://example.com/airbnb-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Cambio de ropa de cama y preparación de camas.",
                     "Aspiración y trapeado de pisos.",
@@ -315,13 +314,13 @@ export const services_translations: any = {
                     "Desinfección de áreas de alto contacto (controles remotos, interruptores, etc.).",
                     "Eliminación de basura y reciclaje.",
                 ],
+                cta: "Programa tu limpieza de Airbnb hoy mismo →",
             },
             {
                 title: "Limpieza y mantenimiento de condominios",
                 description:
-                    "Servicios especializados de limpieza y mantenimiento para condominios. Nos encargamos de todo, desde el lavado a alta presión hasta la limpieza interior, para mantener tu propiedad en perfecto estado. Nuestros servicios incluyen limpieza profunda, lavado de ventanas y reparaciones menores.",
-                image:
-                    "https://example.com/condo-cleaning-es.jpg", // Replace with actual image link
+                    "Mantén tu condominio en perfectas condiciones con nuestros servicios especializados de limpieza y mantenimiento. Desde el lavado a alta presión hasta la limpieza interior profunda, nos encargamos de todo para que tu propiedad permanezca impecable y bien cuidada.",
+                image: "https://example.com/condo-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Limpieza interior (desempolvado, aspiración, trapeado).",
                     "Lavado a alta presión para balcones y exteriores.",
@@ -331,13 +330,13 @@ export const services_translations: any = {
                     "Reparaciones menores y tareas de mantenimiento.",
                     "Eliminación de basura y reciclaje.",
                 ],
+                cta: "Personaliza tu plan de limpieza para condominios →",
             },
             {
                 title: "Servicios de mantenimiento",
                 description:
-                    "Servicios expertos de mantenimiento y reparación para propiedades residenciales y comerciales. Desde reparar grifos que gotean hasta ensamblar muebles, estamos aquí para ayudarte. Nuestros servicios incluyen plomería, electricidad y reparaciones generales.",
-                image:
-                    "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/handyman-services.jpg?alt=media&token=817cc277-6bcb-402d-a334-5c63fb6a7d31",
+                    "Desde reparar grifos que gotean hasta ensamblar muebles, nuestros servicios de mantenimiento están aquí para ahorrarte tiempo y problemas. Ya sea para una propiedad residencial o comercial, te ofrecemos reparaciones confiables y de alta calidad.",
+                image: "https://example.com/handyman-services-es.jpg", // Replace with actual image link
                 details: [
                     "Reparaciones de plomería (grifos que gotean, desagües obstruidos).",
                     "Reparaciones eléctricas (instalación de luces, reparación de enchufes).",
@@ -347,13 +346,13 @@ export const services_translations: any = {
                     "Tareas generales de mantenimiento.",
                     "Instalación y reparación de electrodomésticos.",
                 ],
+                cta: "Reserva un servicio de mantenimiento ahora →",
             },
             {
                 title: "Limpieza y mantenimiento exterior",
                 description:
-                    "Revitaliza tus espacios exteriores con nuestro servicio de limpieza a alta presión, mantenimiento de patios y paisajismo. Perfecto para entradas, aceras y áreas de asientos exteriores. Nos aseguramos de que tu propiedad luzca impecable todo el año.",
-                image:
-                    "https://example.com/outdoor-cleaning-es.jpg", // Replace with actual image link
+                    "Revitaliza tus espacios exteriores con nuestro servicio de limpieza a alta presión, mantenimiento de patios y paisajismo. Perfecto para entradas, aceras y áreas de asientos exteriores, nos aseguramos de que tu propiedad luzca impecable todo el año.",
+                image: "https://example.com/outdoor-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Lavado a alta presión para entradas y aceras.",
                     "Limpieza de patios y terrazas.",
@@ -363,13 +362,13 @@ export const services_translations: any = {
                     "Lavado de ventanas exteriores.",
                     "Eliminación de malezas y mantenimiento de jardines.",
                 ],
+                cta: "Solicita una consulta gratuita para limpieza exterior →",
             },
             {
                 title: "Limpieza de tiendas minoristas",
                 description:
-                    "Mejora tu espacio minorista con nuestros servicios de limpieza especializados. Nos aseguramos de que tu tienda esté limpia, organizada y acogedora, creando una experiencia de compra positiva para tus clientes. Nuestros servicios incluyen pulido de pisos, limpieza de vitrinas y más.",
-                image:
-                    "https://example.com/retail-cleaning-es.jpg", // Replace with actual image link
+                    "Mejora tu espacio minorista con nuestros servicios de limpieza especializados. Nos aseguramos de que tu tienda esté limpia, organizada y acogedora, creando una experiencia de compra positiva para tus clientes. Desde el pulido de pisos hasta la limpieza de vitrinas, estamos aquí para ti.",
+                image: "https://example.com/retail-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Limpieza y pulido de pisos.",
                     "Desempolvado y limpieza de estantes y vitrinas.",
@@ -379,13 +378,13 @@ export const services_translations: any = {
                     "Desinfección de superficies de alto contacto.",
                     "Organización y limpieza de almacenes.",
                 ],
+                cta: "Obtén un plan de limpieza personalizado para tu tienda →",
             },
             {
                 title: "Limpieza antes de mudanza",
                 description:
-                    "Haz tu mudanza más fácil con nuestro servicio de limpieza previa. Nos aseguramos de que tu espacio esté impecable, desinfectado y listo para un nuevo comienzo. Nuestros servicios incluyen limpieza profunda, limpieza de alfombras y una inspección final.",
-                image:
-                    "https://example.com/pre-move-cleaning-es.jpg", // Replace with actual image link
+                    "Haz tu mudanza más fácil con nuestro servicio de limpieza previa. Ya sea que te mudes o desocupes un espacio, nos aseguramos de que esté impecable, desinfectado y listo para un nuevo comienzo. Nuestros servicios incluyen limpieza profunda, limpieza de alfombras y una inspección final.",
+                image: "https://example.com/pre-move-cleaning-es.jpg", // Replace with actual image link
                 details: [
                     "Limpieza profunda de todas las habitaciones.",
                     "Limpieza de alfombras y pisos.",
@@ -395,6 +394,7 @@ export const services_translations: any = {
                     "Eliminación de basura e inspección final.",
                     "Desinfección de áreas de alto contacto.",
                 ],
+                cta: "Programa tu limpieza previa a la mudanza hoy mismo →",
             },
         ],
     },

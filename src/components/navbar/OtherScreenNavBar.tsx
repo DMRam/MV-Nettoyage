@@ -33,9 +33,8 @@ export const OtherScreenNavBar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     // Get the translation based on the selected language
-    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["⚜️ FR"]; // Fallback to English
+    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["⚜️ FR"]; // Fallback to French
 
     return (
         <div
@@ -44,7 +43,10 @@ export const OtherScreenNavBar = () => {
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <div className="flex items-center">
+                <div
+                    className="flex items-center cursor-pointer" // Add cursor-pointer for clickable effect
+                    onClick={() => navigate("/")} // Navigate to the home page on click
+                >
                     <img src={logo} alt="Logo" className="h-12" />
                 </div>
 
