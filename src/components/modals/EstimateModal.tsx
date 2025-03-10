@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 import { estimate_modal_translations } from "./EstimateModalTranslations";
+import emailjs from 'emailjs-com';
+import { estimate_email_credentials } from "../contact/emailjs/EmailJSCredentials";
 
 type ModalProps = {
     isOpen: boolean;
@@ -15,9 +17,7 @@ type AdditionalOptions = {
 };
 
 export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
-
-    // Language and dropdown state
-    const { languageSelected } = useLanguageSelector()
+    const { languageSelected } = useLanguageSelector();
     const t = estimate_modal_translations[languageSelected];
     const [area, setArea] = useState<number | null>(null);
     const [displayArea, setDisplayArea] = useState("");
@@ -37,13 +37,9 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
     const [isSent, setIsSent] = useState(false);
     const [note, setNote] = useState("");
 
-    // Convert square feet to square meters
     const convertToMetric = (value: number) => value * 0.092903;
-
-    // Convert square meters to square feet
     const convertToImperial = (value: number) => value / 0.092903;
 
-    // Update the displayed area when the unit changes
     useEffect(() => {
         if (area !== null) {
             const convertedArea = isMetric ? convertToMetric(area) : area;
@@ -51,7 +47,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     }, [isMetric, area]);
 
-    // Handle area input change
     const handleAreaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         if (value === "") {
@@ -67,7 +62,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
-    // Validate inputs
     const validateInputs = () => {
         const newErrors: { area?: string; email?: string } = {};
         if (area === null || area <= 0) {
@@ -80,7 +74,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         return Object.keys(newErrors).length === 0;
     };
 
-    // Calculate the cleaning estimate
     const calculateEstimate = () => {
         if (!validateInputs()) return;
 
@@ -97,33 +90,49 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         setShowEstimate(true);
     };
 
-    // Recalculate estimate when inputs change
     useEffect(() => {
         if (area !== null && area > 0) {
             calculateEstimate();
         }
     }, [area, cleaningType, additionalOptions, isMetric]);
 
-    // Handle sending the estimate for validation
     const sendForValidation = async () => {
         if (!validateInputs()) return;
 
         setIsLoading(true);
         try {
-            // Simulate API call to send data to the enterprise
-            await new Promise((resolve) => setTimeout(resolve, 2000));
+            const emailData = {
+                from_name: "Cleaning Estimate",
+                from_email: email,
+                area: `${displayArea} ${isMetric ? "m²" : "ft²"}`,
+                cleaning_type: cleaningType,
+                deepCleaning: additionalOptions.deepCleaning ? "Yes" : "No",
+                ecoFriendly: additionalOptions.ecoFriendly ? "Yes" : "No",
+                windowCleaning: additionalOptions.windowCleaning ? "Yes" : "No",
+                estimated_cost: estimatedCost?.toLocaleString(),
+                note: note,
+                // image: image ? await toBase64(image) : null,
+            };
+
+            await emailjs.send(
+                estimate_email_credentials.sevice_key,
+                estimate_email_credentials.template_key,
+                emailData,
+                estimate_email_credentials.email_key
+            );
+
             setIsSent(true);
+            alert(t.successMessage || "Your request was sent successfully!"); // Fallback message
+            onClose();
         } catch (error) {
             console.error("Error sending estimate:", error);
+            alert(t.errorMessage || "An error occurred. Please try again."); // Fallback message
         } finally {
             setIsLoading(false);
         }
     };
 
-    // Handle image upload
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-        // Call firestore function to upload image
         const file = e.target.files?.[0];
         if (file) {
             if (file.size > 5 * 1024 * 1024) {
@@ -138,7 +147,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
-    // Reset form on close
     useEffect(() => {
         if (!isOpen) {
             setArea(null);
@@ -155,6 +163,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             setNote("");
         }
     }, [isOpen]);
+
 
     return (
         <AnimatePresence>

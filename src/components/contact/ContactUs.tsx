@@ -2,37 +2,53 @@ import React, { useState } from "react";
 import { motion } from "framer-motion"; // For animations
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 import { contact_translations } from "./ContactTranscription";
+import emailjs from "@emailjs/browser";
+import { contact_email_credentials } from "./emailjs/EmailJSCredentials";
 
 export const ContactUs = () => {
     // Language and dropdown state
-    const { languageSelected } = useLanguageSelector()
+    const { languageSelected } = useLanguageSelector();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        phone: '',
         message: "",
     });
-    const [errors, setErrors] = useState<any>({});
+    const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Get the current translations based on the selected language
     const currentTranslations = contact_translations[languageSelected];
 
-    const handleChange = (e: { target: { name: any; value: any } }) => {
+    // Handle input changes
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: "" }); // Clear errors when typing
     };
 
+    // Validate the form
     const validateForm = () => {
-        const newErrors: any = {};
-        if (!formData.name) newErrors.name = currentTranslations.formErrors.name;
-        if (!formData.email) newErrors.email = currentTranslations.formErrors.email;
-        if (!formData.message) newErrors.message = currentTranslations.formErrors.message;
-        return newErrors;
-    };
+    const newErrors: Record<string, string> = {};
+    const phoneRegex = /^[0-9\s\-\+\(\)]+$/; // Allows numbers, spaces, dashes, parentheses, and plus sign
 
-    const handleSubmit = (e: { preventDefault: () => void }) => {
+    if (!formData.name) newErrors.name = currentTranslations.formErrors.name;
+    if (!formData.email) newErrors.email = currentTranslations.formErrors.email;
+    if (!formData.phone) {
+        newErrors.phone = currentTranslations.formErrors.phone;
+    } else if (!phoneRegex.test(formData.phone)) {
+        newErrors.phone = "Invalid phone number format.";
+    }
+    if (!formData.message) newErrors.message = currentTranslations.formErrors.message;
+
+    return newErrors;
+};
+
+
+    // Handle form submission
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         const validationErrors = validateForm();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -40,12 +56,33 @@ export const ContactUs = () => {
         }
 
         setIsSubmitting(true);
-        // Simulate form submission
-        setTimeout(() => {
-            alert(currentTranslations.successMessage);
+
+        try {
+            // Send the email using EmailJS
+            const response = await emailjs.send(
+                contact_email_credentials.sevice_key,
+                contact_email_credentials.template_key,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                },
+                contact_email_credentials.email_key
+            );
+
+            if (response.status === 200) {
+                alert(currentTranslations.successMessage);
+                setFormData({ name: "", email: "", phone: '', message: "" });
+            } else {
+                alert("Failed to send email. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("An error occurred. Please try again.");
+        } finally {
             setIsSubmitting(false);
-            setFormData({ name: "", email: "", message: "" });
-        }, 2000);
+        }
     };
 
     return (
@@ -112,6 +149,22 @@ export const ContactUs = () => {
                             </div>
 
                             <div className="mb-6">
+                                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                                    {currentTranslations.formLabels.phone}
+                                </label>
+                                <input
+                                    type="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${errors.phone ? "border-red-500" : "border-gray-300 focus:ring-blue-500"
+                                        }`}
+                                    placeholder={currentTranslations.formPlaceholders.phone}
+                                />
+                                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                            </div>
+
+                            <div className="mb-6">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
                                     {currentTranslations.formLabels.message}
                                 </label>
@@ -139,87 +192,24 @@ export const ContactUs = () => {
                         </form>
                     </motion.div>
 
-                    {/* Contact Information */}
-                    <motion.div
-                        className="bg-white p-8 rounded-lg shadow-lg"
+                    {/* Business Hours and Additional Info */}
+                    <motion.div className="bg-white p-8 rounded-lg shadow-lg"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                    >
+                        transition={{ duration: 0.6, delay: 0.4 }}>
                         <h3 className="text-2xl font-serif font-bold text-gray-900 mb-6">
                             {currentTranslations.getInTouch}
                         </h3>
-                        <div className="space-y-4">
-                            <div className="flex items-center space-x-4">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                    />
-                                </svg>
-                                <p className="text-gray-700">{currentTranslations.contactInfo.phone}</p>
-                            </div>
-                            <div className="flex items-center space-x-4">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                <p className="text-gray-700">{currentTranslations.contactInfo.email}</p>
-                            </div>
-                            <div className="flex items-center space-x-4">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6 text-blue-600"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <p className="text-gray-700">{currentTranslations.contactInfo.address}</p>
-                            </div>
-                        </div>
-
-                        {/* Google Map Embed */}
-                        <div className="mt-8">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2802.5119979972465!2d-71.97406652373061!3d45.37884173912994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb64b49f0245d61%3A0x946218c980ab0dd4!2s739%20Rue%20Roberge%2C%20Sherbrooke%2C%20QC%20J1N%201Y4!5e0!3m2!1sen!2sca!4v1740098287698!5m2!1sen!2sca"
-                                width="100%"
-                                height="300"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                            />
-                        </div>
+                        <p className="text-gray-700 mb-4">📧 {currentTranslations.contactInfo.email}</p>
+                        <p className="text-gray-700 mb-4">📞 {currentTranslations.contactInfo.phone}</p>
+                        <h4 className="text-lg font-bold text-gray-800">🕒 Business Hours</h4>
+                        <p className="text-gray-700">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p className="text-gray-700">Saturday: 10:00 AM - 4:00 PM</p>
+                        <p className="text-gray-700">Sunday: Closed</p>
+                        <h4 className="text-lg font-bold text-gray-800 mt-6">💬 WhatsApp Support</h4>
+                        <p className="text-gray-700">Chat with us on WhatsApp: +1 234 567 890</p>
+                        <h4 className="text-lg font-bold text-gray-800 mt-6">⏳ Response Time</h4>
+                        <p className="text-gray-700">We typically respond within 24 hours.</p>
                     </motion.div>
                 </div>
             </div>

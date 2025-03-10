@@ -25,7 +25,9 @@ export const estimate_modal_translations: any = {
         areaError: "Please enter a valid area.",
         emailError: "Please enter a valid email address.",
         message_recalculate: "➡️ The estimated price updates automatically when quantities change.",
-        message_final_price: "➡️ This estimate is for reference only and does not constitute the final price."
+        message_final_price: "➡️ This estimate is for reference only and does not constitute the final price.",
+        successMessage: "Thank you for contacting us! We'll get back to you soon.",
+
     },
     "⚜️ FR": {
         title: "Estimation des Services de Nettoyage",
@@ -53,7 +55,8 @@ export const estimate_modal_translations: any = {
         areaError: "Veuillez entrer une surface valide.",
         emailError: "Veuillez entrer une adresse email valide.",
         message_recalculate: "➡️ Le prix estimé est recalculé automatiquement lorsque les quantités changent.",
-        message_final_price: "➡️ Cette estimation est fournie à titre indicatif et ne constitue pas un prix final."
+        message_final_price: "➡️ Cette estimation est fournie à titre indicatif et ne constitue pas un prix final.",
+        successMessage: "Merci de nous avoir contactés! Nous vous répondrons bientôt.",
     },
     "🇨🇱 ES": {
         title: "Estimación de Servicios de Limpieza",
@@ -81,6 +84,7 @@ export const estimate_modal_translations: any = {
         areaError: "Por favor ingrese un área válida.",
         emailError: "Por favor ingrese un email válido.",
         message_recalculate: "➡️ El precio estimado se actualiza automáticamente al modificar las cantidades.",
-        message_final_price: "➡️ Esta es solo una estimación y no representa el precio final."
+        message_final_price: "➡️ Esta es solo una estimación y no representa el precio final.",
+        successMessage: "¡Gracias por contactarnos! Nos pondremos en contacto con usted pronto.",
     },
 };

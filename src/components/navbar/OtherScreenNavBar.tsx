@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/logo/logoVIII.png";
+import logo from '../../assets/logo/logo_ecoserv.png';
 import { useNavigate } from "react-router-dom";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook
 import { other_screen_navbar_translations } from "./NavBarTranslations";
