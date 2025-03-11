@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { OtherScreenNavBar } from "../navbar/OtherScreenNavBar";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 import { service_detail_translations } from "./ServiceDetailTranslations";
-import emailjs from "emailjs-com"; // Import EmailJS
+import emailjs from "emailjs-com";
 import { contact_email_credentials } from "../contact/emailjs/EmailJSCredentials";
 
 export const OurServiceDetail = () => {
-    // Language and dropdown state
     const { languageSelected } = useLanguageSelector();
-
     const location = useLocation();
     const { service } = location.state || {};
 
-    // State for the contact form
+    console.log(service);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -22,29 +21,22 @@ export const OurServiceDetail = () => {
         message: "",
     });
 
-    // State for form errors
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-    // State for submission status
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Handle form input changes
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        // Clear errors when the user starts typing
         if (errors[name]) {
             setErrors({ ...errors, [name]: "" });
         }
     };
 
-    // Validate Canadian phone number
     const validateCanadianPhoneNumber = (phone: string) => {
         const canadianPhoneRegex = /^(\+?1)?[ -]?(\([0-9]{3}\)|[0-9]{3})[ -]?[0-9]{3}[ -]?[0-9]{4}$/;
         return canadianPhoneRegex.test(phone);
     };
 
-    // Form validation function
     const validateForm = () => {
         const validationErrors: { [key: string]: string } = {};
 
@@ -71,7 +63,6 @@ export const OurServiceDetail = () => {
         return validationErrors;
     };
 
-    // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -84,7 +75,6 @@ export const OurServiceDetail = () => {
         setIsSubmitting(true);
 
         try {
-            // Send the email using EmailJS
             const response = await emailjs.send(
                 contact_email_credentials.service_key,
                 contact_email_credentials.template_key,
@@ -99,7 +89,7 @@ export const OurServiceDetail = () => {
 
             if (response.status === 200) {
                 alert(service_detail_translations[languageSelected].successMessage);
-                setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+                setFormData({ name: "", email: "", phone: "", message: "" });
             } else {
                 alert(service_detail_translations[languageSelected].errorMessage);
             }
@@ -115,15 +105,12 @@ export const OurServiceDetail = () => {
         return <div>No service data found.</div>;
     }
 
-    // Animation variants for the service details
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
     };
 
-    // Get the translations based on the selected language
     const {
-        requestInfo,
         nameLabel,
         emailLabel,
         phoneLabel,
@@ -134,161 +121,253 @@ export const OurServiceDetail = () => {
         serviceOverviewTitle,
         contactFormTitle,
         personalizationNote,
-        successMessage,
-        errorMessage,
-    } = service_detail_translations[languageSelected] || service_detail_translations["⚜️ FR"]; // Fallback to French
+    } = service_detail_translations[languageSelected] || service_detail_translations["⚜️ FR"];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white"> {/* Gradient background */}
-            {/* Local Navigation Bar */}
-            <OtherScreenNavBar />
-
-            {/* Service Details */}
-            <motion.div
-                className="mt-24 max-w-full mx-auto p-8 bg-white rounded-xl shadow-xl border border-gray-100" // Elegant container
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+        <div className="min-h-screen relative bg-gradient-to-br from-blue-50 to-purple-50">
+            {/* Dynamic Lines Background */}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+                className="absolute inset-0 z-0"
             >
-                {/* Animated Title */}
-                <motion.h1
-                    className="text-5xl font-serif font-bold text-blue-900 mb-8" // Elegant title
+                {/* Gradient Overlay */}
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FF6B6B" stopOpacity="0.1" />
+                        <stop offset="50%" stopColor="#4ECDC4" stopOpacity="0.1" />
+                        <stop offset="100%" stopColor="#6B5B95" stopOpacity="0.1" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#gradient)" />
+
+                {/* Random Horizontal Lines */}
+                {Array.from({ length: 20 }).map((_, i) => (
+                    <line
+                        key={`h-${i}`}
+                        x1="0"
+                        y1={`${(i + 1) * 5}%`}
+                        x2="100%"
+                        y2={`${(i + 1) * 5}%`}
+                        stroke="#FF6B6B"
+                        strokeWidth="1"
+                        strokeOpacity="0.3"
+                    />
+                ))}
+
+                {/* Random Vertical Lines */}
+                {Array.from({ length: 20 }).map((_, i) => (
+                    <line
+                        key={`v-${i}`}
+                        x1={`${(i + 1) * 5}%`}
+                        y1="0"
+                        x2={`${(i + 1) * 5}%`}
+                        y2="100%"
+                        stroke="#4ECDC4"
+                        strokeWidth="1"
+                        strokeOpacity="0.3"
+                    />
+                ))}
+
+                {/* Random Diagonal Lines */}
+                {Array.from({ length: 20 }).map((_, i) => (
+                    <line
+                        key={`d-${i}`}
+                        x1={`${Math.random() * 100}%`}
+                        y1={`${Math.random() * 100}%`}
+                        x2={`${Math.random() * 100}%`}
+                        y2={`${Math.random() * 100}%`}
+                        stroke="#6B5B95"
+                        strokeWidth="1"
+                        strokeOpacity="0.3"
+                    />
+                ))}
+            </svg>
+
+            {/* Content */}
+            <div className="relative z-10">
+                <OtherScreenNavBar />
+                <motion.div
+                    className="mt-24 mr-2 ml-2 max-w-full mx-auto p-8 backdrop-blur-lg bg-white/70 rounded-xl shadow-xl border border-gray-100"
                     variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
-                    {service.title}
-                </motion.h1>
+                    <motion.h1
+                        className="text-5xl font-serif font-bold text-blue-900 mb-8"
+                        variants={containerVariants}
+                    >
+                        {service.title}
+                    </motion.h1>
 
-                {/* Animated Image */}
-                <motion.img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-96 object-cover rounded-xl mb-8 shadow-lg" // Elegant image
-                    variants={containerVariants}
-                />
+                    {/* Main Image (First image in the array) */}
+                    {service.image && service.image.length > 0 && (
+                        <motion.img
+                            src={service.image[0]}
+                            alt={service.title}
+                            className="w-full h-96 object-cover rounded-xl mb-8 shadow-lg"
+                            variants={containerVariants}
+                        />
+                    )}
 
-                {/* Service Overview Section */}
-                <motion.div className="mb-8" variants={containerVariants}>
-                    <h2 className="text-3xl font-bold text-blue-900 mb-6"> {/* Elegant heading */}
-                        {serviceOverviewTitle}
-                    </h2>
-                    <p className="text-lg text-gray-700 leading-relaxed"> {/* Relaxed text */}
-                        {service.description}
-                    </p>
-                </motion.div>
+                    {/* Service Overview Section with Side-by-Side Image */}
+                    <motion.div className="mb-8 flex flex-col md:flex-row gap-8" variants={containerVariants}>
+                        {/* Service Overview Text */}
+                        <div className="flex-1">
+                            <h2 className="text-3xl font-bold text-blue-900 mb-6">
+                                {serviceOverviewTitle}
+                            </h2>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                {service.description}
+                            </p>
+                        </div>
 
-                {/* Included Services Section */}
-                {service.details && (
-                    <motion.div className="mb-8" variants={containerVariants}>
-                        <h2 className="text-3xl font-bold text-blue-900 mb-6"> {/* Elegant heading */}
-                            {includedServicesTitle}
-                        </h2>
-                        <ul className="list-disc list-inside text-gray-700 space-y-3 text-lg"> {/* Elegant list */}
-                            {service.details.map((detail: string, index: number) => (
-                                <li key={index}>{detail}</li>
-                            ))}
-                        </ul>
+                        {/* Second Image (Right-hand side) */}
+                        {service.image && service.image.length > 1 && (
+                            <motion.img
+                                src={service.image[1]}
+                                alt={`Additional Image 1`}
+                                className="w-full md:w-1/2 h-64 md:h-auto object-cover rounded-xl shadow-lg"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                            />
+                        )}
                     </motion.div>
-                )}
 
-                {/* Personalization Note */}
-                <motion.div className="mb-8" variants={containerVariants}>
-                    <p className="text-lg text-gray-700 italic">
-                        {personalizationNote}
-                    </p>
+                    {/* Included Services Section */}
+                    {service.details && (
+                        <motion.div className="mb-8" variants={containerVariants}>
+                            <h2 className="text-3xl font-bold text-blue-900 mb-6">
+                                {includedServicesTitle}
+                            </h2>
+                            <ul className="list-disc list-inside text-gray-700 space-y-3 text-lg">
+                                {service.details.map((detail: string, index: number) => (
+                                    <li key={index}>{detail}</li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    )}
+
+                    {/* Additional Images Grid (Remaining images in the array) */}
+                    {service.image && Array.isArray(service.image) && service.image.length > 2 && (
+                        <motion.div className="mb-8" variants={containerVariants}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {service.image.slice(2).map((image: string, index: number) => {
+                                    console.log("Rendering image:", image); // Debugging
+                                    return (
+                                        <motion.img
+                                            key={index}
+                                            src={image}
+                                            alt={`Additional Image ${index + 2}`}
+                                            className="w-full h-64 object-cover rounded-xl shadow-lg"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                                        />
+                                    );
+                                })}
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {/* Personalization Note */}
+                    <motion.div className="mb-8" variants={containerVariants}>
+                        <p className="text-lg text-gray-700 italic">
+                            {personalizationNote}
+                        </p>
+                    </motion.div>
+
+                    {/* Contact Form for Service Request */}
+                    <motion.div className="mt-12" variants={containerVariants}>
+                        <h2 className="text-3xl font-bold text-blue-900 mb-8">
+                            {contactFormTitle}
+                        </h2>
+                        <p className="text-lg text-gray-700 mb-8">
+                            {service.cta}
+                        </p>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium text-blue-900 mb-2">
+                                    {nameLabel}
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    required
+                                />
+                                {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
+                            </div>
+
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-blue-900 mb-2">
+                                    {emailLabel}
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    required
+                                />
+                                {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
+                            </div>
+
+                            <div>
+                                <label htmlFor="phone" className="block text-sm font-medium text-blue-900 mb-2">
+                                    {phoneLabel}
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder={phonePlaceholder}
+                                    required
+                                />
+                                {errors.phone && <p className="text-red-500 text-sm mt-2">{errors.phone}</p>}
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" className="block text-sm font-medium text-blue-900 mb-2">
+                                    {messageLabel}
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    rows={5}
+                                    required
+                                />
+                                {errors.message && <p className="text-red-500 text-sm mt-2">{errors.message}</p>}
+                            </div>
+
+                            <div>
+                                <button
+                                    type="submit"
+                                    className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? "Sending..." : submitButton}
+                                </button>
+                            </div>
+                        </form>
+                    </motion.div>
                 </motion.div>
-
-                {/* Contact Form for Service Request */}
-                <motion.div className="mt-12" variants={containerVariants}>
-                    <h2 className="text-3xl font-bold text-blue-900 mb-8"> {/* Elegant heading */}
-                        {contactFormTitle}
-                    </h2>
-                    {/* CTA Text */}
-                    <p className="text-lg text-gray-700 mb-8">
-                        {service.cta} {/* Use the CTA text from the service object */}
-                    </p>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Name Field */}
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-blue-900 mb-2">
-                                {nameLabel}
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
-                            />
-                            {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
-                        </div>
-
-                        {/* Email Field */}
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-blue-900 mb-2">
-                                {emailLabel}
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
-                            />
-                            {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
-                        </div>
-
-                        {/* Phone Field */}
-                        <div>
-                            <label htmlFor="phone" className="block text-sm font-medium text-blue-900 mb-2">
-                                {phoneLabel}
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleInputChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                placeholder={phonePlaceholder} // Add placeholder
-                                required
-                            />
-                            {errors.phone && <p className="text-red-500 text-sm mt-2">{errors.phone}</p>}
-                        </div>
-
-                        {/* Message Field */}
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-blue-900 mb-2">
-                                {messageLabel}
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                rows={5}
-                                required
-                            />
-                            {errors.message && <p className="text-red-500 text-sm mt-2">{errors.message}</p>}
-                        </div>
-
-                        {/* Submit Button */}
-                        <div>
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
-                                disabled={isSubmitting}
-                            >
-                                {isSubmitting ? "Sending..." : submitButton}
-                            </button>
-                        </div>
-                    </form>
-                </motion.div>
-            </motion.div>
+            </div>
         </div>
     );
 };
+
+

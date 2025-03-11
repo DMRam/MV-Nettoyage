@@ -36,10 +36,15 @@ export const OtherScreenNavBar = () => {
     // Get the translation based on the selected language
     const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["⚜️ FR"]; // Fallback to French
 
+
+    /**
+     * <nav className={`bg-blue-600 text-white p-4 fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-500 
+                ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-100%]"}`}>
+     */
     return (
         <div
-            className={`bg-blue-600 text-white p-4 fixed top-0 left-1/2 -translate-x-1/2 w-[100%] z-50 shadow-lg backdrop-blur-sm rounded-b-lg transition-all duration-500 
-                ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-20px]"}`}
+        className={`bg-blue-600 text-white p-4 fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-500 
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-100%]"}`}
         >
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 {/* Logo */}

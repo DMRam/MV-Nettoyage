@@ -13,7 +13,7 @@ export const ServicesSection = () => {
   const currentTranslations = services_translations[languageSelected];
 
   const handleCardClick = (service: any) => {
-    navigate(`/service/${service.title}`, { state: { service } }); // Pass service data via state
+    navigate(`/service/${service.title}`, { state: { service } }); 
   };
 
   return (
@@ -42,7 +42,7 @@ export const ServicesSection = () => {
             {/* Image with overlay */}
             <div className="relative w-full h-80">
               <img
-                src={service.image}
+                src={service.image[0]}
                 alt={service.title}
                 className="object-cover w-full h-full transition-transform rounded-t-lg"
               />
