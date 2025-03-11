@@ -29,7 +29,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         windowCleaning: false,
     });
     const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
-    const [image, setImage] = useState<File | null>(null);
+    // const [image, setImage] = useState<File | null>(null);
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [showEstimate, setShowEstimate] = useState(false);
@@ -155,20 +155,21 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
-    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            if (file.size > 5 * 1024 * 1024) {
-                alert(t.uploadImageError);
-                return;
-            }
-            if (!file.type.startsWith("image/")) {
-                alert(t.uploadImageTypeError);
-                return;
-            }
-            setImage(file);
-        }
-    };
+    // const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     image
+    //     const file = e.target.files?.[0];
+    //     if (file) {
+    //         if (file.size > 5 * 1024 * 1024) {
+    //             alert(t.uploadImageError);
+    //             return;
+    //         }
+    //         if (!file.type.startsWith("image/")) {
+    //             alert(t.uploadImageTypeError);
+    //             return;
+    //         }
+    //         setImage(file);
+    //     }
+    // };
 
     useEffect(() => {
         if (!isOpen) {
@@ -178,7 +179,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             setCleaningType("basic");
             setAdditionalOptions({ deepCleaning: false, ecoFriendly: false, windowCleaning: false });
             setEstimatedCost(null);
-            setImage(null);
+            // setImage(null);
             setEmail("");
             setPhoneNumber("");
             setShowEstimate(false);
