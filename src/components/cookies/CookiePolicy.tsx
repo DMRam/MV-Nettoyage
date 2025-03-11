@@ -1,4 +1,3 @@
-import React from "react";
 import { OtherScreenNavBar } from "../navbar/OtherScreenNavBar";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook
 import { cookie_policy_translations } from "./CookiesTranscriptions";

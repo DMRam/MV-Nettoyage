@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLanguageSelector } from '../../hooks/useLanguageSelector';
 import { footer_translations } from './FooterTranslations';
 

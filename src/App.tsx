@@ -1,4 +1,3 @@
-import React from 'react';
 import HeroSection from './components/hero/HeroSectionAnimated';
 import { AboutUs } from './components/about/AboutUs';
 import './App.css';

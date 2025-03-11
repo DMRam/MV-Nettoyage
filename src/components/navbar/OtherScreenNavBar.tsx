@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import logo from '../../assets/logo/logo_ecoserv.png';
 import { useNavigate } from "react-router-dom";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook

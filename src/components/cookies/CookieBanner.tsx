@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 import { cookie_banner_translations } from "./CookiesTranscriptions";
 

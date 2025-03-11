@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa"; // Import WhatsApp icon
 import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 

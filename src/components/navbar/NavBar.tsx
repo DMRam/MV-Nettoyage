@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import logo from '../../assets/logo/logo_ecoserv.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from "framer-motion";
