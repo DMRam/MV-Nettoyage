@@ -2,7 +2,13 @@ export const about_translations: any = {
   '🇨🇦 EN': {
     about: 'About Us',
     description:
-      'We are a trusted professional cleaning company specializing in delivering exceptional commercial cleaning services. With years of expertise, we help businesses create and maintain pristine, healthy environments that enhance productivity and leave a lasting impression on clients and employees alike. Our commitment to quality, eco-friendly practices, and customer satisfaction sets us apart in the industry.',
+      'We are a passionate and driven professional cleaning company, dedicated to delivering exceptional commercial cleaning services. With a modern approach and innovative solutions, we create pristine, healthy environments that enhance productivity and leave a lasting impression on clients and employees alike. Our commitment to quality, eco-friendly practices, and customer satisfaction is the foundation of everything we do.',
+    missionTitle: 'Our Mission',
+    mission:
+      'To provide exceptional cleaning services that enhance the health, productivity, and overall experience of our clients. We are committed to building strong relationships based on transparency, reliability, and a sustainable approach to the environment.',
+    visionTitle: 'Our Vision',
+    vision:
+      'To become a leading provider of commercial cleaning services, recognized for our innovation, professionalism, and dedication to creating cleaner, healthier spaces for businesses and communities. We aspire to be your trusted partner every step of the way.',
     images: [
       {
         src: "https://www.stathakis.com/hs-fs/hubfs/team%20cleaning.jpg?width=667&name=team%20cleaning.jpg",
@@ -25,7 +31,13 @@ export const about_translations: any = {
   '⚜️ FR': {
     about: 'À propos de nous',
     description:
-      'Nous sommes une entreprise de nettoyage professionnelle de confiance, spécialisée dans la fourniture de services de nettoyage commercial exceptionnels. Forts de plusieurs années d’expérience, nous aidons les entreprises à créer et à maintenir des environnements impeccables et sains qui améliorent la productivité et laissent une impression durable sur les clients et les employés. Notre engagement envers la qualité, les pratiques écologiques et la satisfaction client nous distingue dans l’industrie.',
+      'Nous sommes une entreprise de nettoyage professionnelle passionnée et déterminée, spécialisée dans la fourniture de services de nettoyage commercial exceptionnels. Avec une approche moderne et des solutions innovantes, nous créons des environnements impeccables et sains qui améliorent la productivité et laissent une impression durable sur les clients et les employés. Notre engagement envers la qualité, les pratiques écologiques et la satisfaction client est au cœur de tout ce que nous faisons.',
+    missionTitle: 'Notre Mission',
+    mission:
+      'Fournir des services de nettoyage exceptionnels qui améliorent la santé, la productivité et l’expérience globale de nos clients. Nous nous engageons à bâtir des relations solides basées sur la transparence, la fiabilité et une approche durable envers l’environnement.',
+    visionTitle: 'Notre Vision',
+    vision:
+      'Devenir un fournisseur leader de services de nettoyage commercial, reconnu pour notre innovation, notre professionnalisme et notre dévouement à créer des espaces plus propres et plus sains pour les entreprises et les communautés. Nous aspirons à être votre partenaire de confiance à chaque étape.',
     images: [
       {
         src: "https://www.stathakis.com/hs-fs/hubfs/team%20cleaning.jpg?width=667&name=team%20cleaning.jpg",
@@ -48,7 +60,13 @@ export const about_translations: any = {
   '🇨🇱 ES': {
     about: 'Sobre nosotros',
     description:
-      'Somos una empresa de limpieza profesional de confianza, especializada en ofrecer servicios de limpieza comercial excepcionales. Con años de experiencia, ayudamos a las empresas a crear y mantener entornos impecables y saludables que mejoran la productividad y dejan una impresión duradera en clientes y empleados. Nuestro compromiso con la calidad, las prácticas ecológicas y la satisfacción del cliente nos distingue en la industria.',
+      'Somos una empresa de limpieza profesional apasionada y comprometida, especializada en ofrecer servicios de limpieza comercial excepcionales. Con un enfoque moderno y soluciones innovadoras, nos dedicamos a crear entornos impecables y saludables que mejoran la productividad y dejan una impresión duradera en clientes y empleados. Nuestro compromiso con la calidad, las prácticas ecológicas y la satisfacción del cliente es la base de todo lo que hacemos.',
+    missionTitle: 'Nuestra Misión',
+    mission:
+      'Proporcionar servicios de limpieza excepcionales que mejoren la salud, la productividad y la experiencia general de nuestros clientes. Nos comprometemos a construir relaciones sólidas basadas en la transparencia, la fiabilidad y un enfoque sostenible hacia el medio ambiente.',
+    visionTitle: 'Nuestra Visión',
+    vision:
+      'Convertirnos en un referente en el sector de servicios de limpieza comercial, reconocidos por nuestra innovación, profesionalismo y dedicación a crear espacios más limpios y saludables para empresas y comunidades. Aspiramos a ser su socio de confianza en cada paso del camino.',
     images: [
       {
         src: "https://www.stathakis.com/hs-fs/hubfs/team%20cleaning.jpg?width=667&name=team%20cleaning.jpg",

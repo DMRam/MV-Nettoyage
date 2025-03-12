@@ -12,8 +12,9 @@ export const OurServiceDetail = () => {
     const location = useLocation();
     const { service } = location.state || {};
 
-    console.log(service);
+    console.log("Service Data:", service); // Debugging
 
+    
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -224,7 +225,7 @@ export const OurServiceDetail = () => {
                         </div>
 
                         {/* Second Image (Right-hand side) */}
-                        {service.image && service.image.length > 1 && (
+                        {service.image && service.image.length >= 1 && (
                             <motion.img
                                 src={service.image[1]}
                                 alt={`Additional Image 1`}
@@ -365,6 +366,7 @@ export const OurServiceDetail = () => {
                         </form>
                     </motion.div>
                 </motion.div>
+               
             </div>
         </div>
     );

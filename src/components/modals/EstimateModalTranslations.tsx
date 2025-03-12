@@ -94,3 +94,48 @@ export const estimate_modal_translations: any = {
         successMessage: "¡Gracias por contactarnos! Nos pondremos en contacto con usted pronto.",
     },
 };
+
+export const modal_plans_translations: any = {
+    '🇨🇦 EN': {
+        modal: {
+            title: "Book",
+            nameLabel: "Name",
+            namePlaceholder: "Your Name",
+            emailLabel: "Email",
+            emailPlaceholder: "Your Email",
+            serviceTypeLabel: "Service Type",
+            notesLabel: "Additional Notes",
+            notesPlaceholder: "Any special requests?",
+            cancelButton: "Cancel",
+            submitButton: "Submit",
+        },
+    },
+    '🇨🇱 ES': {
+        modal: {
+            title: "Reservar",
+            nameLabel: "Nombre",
+            namePlaceholder: "Tu Nombre",
+            emailLabel: "Correo Electrónico",
+            emailPlaceholder: "Tu Correo Electrónico",
+            serviceTypeLabel: "Tipo de Servicio",
+            notesLabel: "Notas Adicionales",
+            notesPlaceholder: "¿Alguna solicitud especial?",
+            cancelButton: "Cancelar",
+            submitButton: "Enviar",
+        },
+    },
+    '⚜️ FR': {
+        modal: {
+            title: "Réserver",
+            nameLabel: "Nom",
+            namePlaceholder: "Votre Nom",
+            emailLabel: "Email",
+            emailPlaceholder: "Votre Email",
+            serviceTypeLabel: "Type de Service",
+            notesLabel: "Notes Supplémentaires",
+            notesPlaceholder: "Des demandes spéciales ?",
+            cancelButton: "Annuler",
+            submitButton: "Soumettre",
+        },
+    },
+};
