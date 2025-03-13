@@ -1,6 +1,6 @@
 export const footer_translations: any = {
     '🇨🇦 EN': {
-        companyName: "MVO Patio & Reno",
+        companyName: "Ecoserv - MV",
         companyDescription: "Transforming your commercial spaces with expert renovation and cleaning services.",
         quickLinksTitle: "Quick Links",
         quickLinks: [
@@ -14,7 +14,7 @@ export const footer_translations: any = {
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. All rights reserved.`,
     },
     '⚜️ FR': {
-        companyName: "MVO Patio & Reno",
+        companyName: "Ecoserv - MV",
         companyDescription: "Transformer vos espaces commerciaux avec des services experts de rénovation et de nettoyage.",
         quickLinksTitle: "Liens Rapides",
         quickLinks: [
@@ -28,7 +28,7 @@ export const footer_translations: any = {
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Tous droits réservés.`,
     },
     '🇨🇱 ES': {
-        companyName: "MVO Patio & Reno",
+        companyName: "Ecoserv - MV",
         companyDescription: "Transformando sus espacios comerciales con servicios expertos de renovación y limpieza.",
         quickLinksTitle: "Enlaces Rápidos",
         quickLinks: [
