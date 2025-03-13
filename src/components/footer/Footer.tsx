@@ -36,10 +36,10 @@ export const Footer = () => {
                 <div>
                     <h3 className="text-xl font-semibold">{currentTranslations.followUsTitle}</h3>
                     <div className="mt-2 flex space-x-4">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/profile.php?id=61573953697978" target="_blank" rel="noopener noreferrer">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/768px-2023_Facebook_icon.svg.png" alt="Facebook" className="h-6 w-6" />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/ecoservnettoyage?igsh=MTNjMDJhdzByMjYzeg==" target="_blank" rel="noopener noreferrer">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png" alt="Instagram" className="h-6 w-6" />
                         </a>
                     </div>

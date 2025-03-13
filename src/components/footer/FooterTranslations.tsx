@@ -4,11 +4,11 @@ export const footer_translations: any = {
         companyDescription: "Transforming your commercial spaces with expert renovation and cleaning services.",
         quickLinksTitle: "Quick Links",
         quickLinks: [
-            { label: "Home", href: "#home" },
-            { label: "About Us", href: "#about" },
-            { label: "Services", href: "#services" },
-            { label: "Portfolio", href: "#portfolio" },
-            { label: "Contact", href: "#contact" },
+            { label: "Home", href: "/" }, // Matches the root route
+            { label: "About Us", href: "/#about" }, // Assuming this is a section on the homepage
+            { label: "Services", href: "/#services" }, // Assuming this is a section on the homepage
+            { label: "Portfolio", href: "/#portfolio" }, // Assuming this is a section on the homepage
+            { label: "Contact", href: "/#contact" }, // Assuming this is a section on the homepage
         ],
         followUsTitle: "Follow Us",
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. All rights reserved.`,
@@ -18,11 +18,11 @@ export const footer_translations: any = {
         companyDescription: "Transformer vos espaces commerciaux avec des services experts de rénovation et de nettoyage.",
         quickLinksTitle: "Liens Rapides",
         quickLinks: [
-            { label: "Accueil", href: "#home" },
-            { label: "À propos", href: "#about" },
-            { label: "Services", href: "#services" },
-            { label: "Portfolio", href: "#portfolio" },
-            { label: "Contact", href: "#contact" },
+            { label: "Accueil", href: "/" }, // Matches the root route
+            { label: "À propos", href: "/#about" }, // Assuming this is a section on the homepage
+            { label: "Services", href: "/#services" }, // Assuming this is a section on the homepage
+            { label: "Portfolio", href: "/#portfolio" }, // Assuming this is a section on the homepage
+            { label: "Contact", href: "/#contact" }, // Assuming this is a section on the homepage
         ],
         followUsTitle: "Suivez-nous",
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Tous droits réservés.`,
@@ -32,11 +32,11 @@ export const footer_translations: any = {
         companyDescription: "Transformando sus espacios comerciales con servicios expertos de renovación y limpieza.",
         quickLinksTitle: "Enlaces Rápidos",
         quickLinks: [
-            { label: "Inicio", href: "#home" },
-            { label: "Sobre Nosotros", href: "#about" },
-            { label: "Servicios", href: "#services" },
-            { label: "Portafolio", href: "#portfolio" },
-            { label: "Contacto", href: "#contact" },
+            { label: "Inicio", href: "/" }, // Matches the root route
+            { label: "Sobre Nosotros", href: "/#about" }, // Assuming this is a section on the homepage
+            { label: "Servicios", href: "/#services" }, // Assuming this is a section on the homepage
+            { label: "Portafolio", href: "/#portfolio" }, // Assuming this is a section on the homepage
+            { label: "Contacto", href: "/#contact" }, // Assuming this is a section on the homepage
         ],
         followUsTitle: "Síguenos",
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Todos los derechos reservados.`,

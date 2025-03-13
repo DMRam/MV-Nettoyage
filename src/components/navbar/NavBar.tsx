@@ -96,9 +96,9 @@ export const NavBar = () => {
                         <ScrollLink to="services" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.services}
                         </ScrollLink>
-                        <ScrollLink to="portfolio" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
+                        {/* <ScrollLink to="portfolio" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.portfolio}
-                        </ScrollLink>
+                        </ScrollLink> */}
                         {/* <ScrollLink to="testimonials" smooth={true} duration={500} className="hover:text-yellow-500 cursor-pointer whitespace-nowrap">
                             {currentTranslations.testimonials}
                         </ScrollLink> */}

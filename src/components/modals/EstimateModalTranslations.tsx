@@ -1,7 +1,7 @@
 export const estimate_modal_translations: any = {
     "🇨🇦 EN": {
         title: "Cleaning Services Estimate",
-        description: "Fill in the details to get an accurate cleaning estimate.",
+        description: "Fill in the details to get a cleaning estimate.",
         measurementUnit: "Measurement Unit:",
         switchUnit: "Switch to",
         areaPlaceholder: "Enter area",
@@ -33,7 +33,7 @@ export const estimate_modal_translations: any = {
     },
     "⚜️ FR": {
         title: "Estimation des Services de Nettoyage",
-        description: "Remplissez les détails pour obtenir une estimation précise.",
+        description: "Remplissez les détails pour obtenir une estimation.",
         measurementUnit: "Unité de mesure :",
         switchUnit: "Changer en",
         areaPlaceholder: "Entrez la surface",
@@ -64,7 +64,7 @@ export const estimate_modal_translations: any = {
     },
     "🇨🇱 ES": {
         title: "Estimación de Servicios de Limpieza",
-        description: "Complete los detalles para obtener una estimación precisa.",
+        description: "Complete los detalles para obtener una estimación.",
         measurementUnit: "Unidad de medida:",
         switchUnit: "Cambiar a",
         areaPlaceholder: "Ingrese el área",

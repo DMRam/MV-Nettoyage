@@ -203,9 +203,9 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                             {/* Area Input */}
                             <div>
                                 <div className="relative mt-4">
-                                    <label className="block text-xs text-gray-600 font-medium mb-1">
+                                    {/* <label className="block text-xs text-gray-600 font-medium mb-1">
                                         {t.message_recalculate}
-                                    </label>
+                                    </label> */}
 
                                     <div className="relative">
                                         <input
@@ -276,59 +276,73 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 {t.reviewEstimate}
                             </button>
 
-                            {/* Email Input */}
-                            <div>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder={t.emailPlaceholder}
-                                    className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                    aria-invalid={!!errors.email}
-                                    aria-describedby="emailError"
-                                />
-                                {errors.email && (
-                                    <p id="emailError" className="text-red-500 text-sm mt-1">
-                                        {errors.email}
-                                    </p>
-                                )}
-                            </div>
+                            {
+                                showEstimate && (
 
-                            {/* Phone Number Input */}
-                            <div>
-                                <input
-                                    type="tel"
-                                    value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
-                                    placeholder={t.phonePlaceholder || "+1 (555) 555-5555"}
-                                    className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                    aria-invalid={!!errors.phoneNumber}
-                                    aria-describedby="phoneError"
-                                />
-                                {errors.phoneNumber && (
-                                    <p id="phoneError" className="text-red-500 text-sm mt-1">
-                                        {errors.phoneNumber}
-                                    </p>
-                                )}
-                            </div>
+                                    <>
 
-                            {/* Note Input */}
-                            <textarea
-                                value={note}
-                                onChange={(e) => setNote(e.target.value)}
-                                placeholder={t.addNote}
-                                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                            />
 
-                            {/* Send Button */}
-                            <button
-                                type="button"
-                                onClick={sendForValidation}
-                                disabled={isLoading || isSent}
-                                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-500 transition-all mt-2"
-                            >
-                                {isLoading ? t.sending : isSent ? t.sent : t.sendForValidation}
-                            </button>
+
+
+
+
+
+                                        {/* Email Input */}
+                                        <div>
+                                            <input
+                                                type="email"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                placeholder={t.emailPlaceholder}
+                                                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                                aria-invalid={!!errors.email}
+                                                aria-describedby="emailError"
+                                            />
+                                            {errors.email && (
+                                                <p id="emailError" className="text-red-500 text-sm mt-1">
+                                                    {errors.email}
+                                                </p>
+                                            )}
+                                        </div>
+
+                                        {/* Phone Number Input */}
+                                        <div>
+                                            <input
+                                                type="tel"
+                                                value={phoneNumber}
+                                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                                placeholder={t.phonePlaceholder || "+1 (555) 555-5555"}
+                                                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                                aria-invalid={!!errors.phoneNumber}
+                                                aria-describedby="phoneError"
+                                            />
+                                            {errors.phoneNumber && (
+                                                <p id="phoneError" className="text-red-500 text-sm mt-1">
+                                                    {errors.phoneNumber}
+                                                </p>
+                                            )}
+                                        </div>
+
+                                        {/* Note Input */}
+                                        <textarea
+                                            value={note}
+                                            onChange={(e) => setNote(e.target.value)}
+                                            placeholder={t.addNote}
+                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                        />
+
+                                        {/* Send Button */}
+                                        <button
+                                            type="button"
+                                            onClick={sendForValidation}
+                                            disabled={isLoading || isSent}
+                                            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-500 transition-all mt-2"
+                                        >
+                                            {isLoading ? t.sending : isSent ? t.sent : t.sendForValidation}
+                                        </button>
+                                    </>
+                                )
+                            }
                         </form>
                     </motion.div>
                 </motion.div>

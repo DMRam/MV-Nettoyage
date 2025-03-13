@@ -24,7 +24,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/service/:title" element={<OurServiceDetail />} />
           <Route path="cookie-policy" element={<CookiePolicy />} />
         </Routes>
-        {/* WhatsApp Button (rendered globally) */}
 
         <Footer />
       </Router>

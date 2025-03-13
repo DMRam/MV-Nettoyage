@@ -9,7 +9,6 @@ import { ContactUs } from './components/contact/ContactUs';
 import { NavBar } from './components/navbar/NavBar';
 
 export const App = () => {
-
   return (
     <>
       <div style={{ width: '100%', minHeight: '100vh' }} className="bg-gray-50">
@@ -20,16 +19,22 @@ export const App = () => {
         {/* Hero Section */}
         <HeroSection />
         {/* About Us Section */}
-        <AboutUs />
+        <section id="about">
+          <AboutUs />
+        </section>
         {/* Portfolio Section */}
-        {/* <Portfolio /> */}
+        {/* <section id="portfolio"> 
+          <Portfolio />
+        </section> */}
         {/* Services Section */}
-        <ServicesSection />
+        <section id="services"> 
+          <ServicesSection />
+        </section>
         {/* ContactUs Section */}
-        <ContactUs />
+        <section id="contact"> 
+          <ContactUs />
+        </section>
       </div>
-
-
     </>
   );
 };

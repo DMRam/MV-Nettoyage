@@ -16,7 +16,7 @@ export const CookiePolicy = () => {
     } = cookie_policy_translations[languageSelected] || cookie_policy_translations["⚜️ FR"]; // Fallback to English
 
     return (
-        <div className="p-8 max-w-4xl mx-auto">
+        <div className="p-8 max-w-4xl mx-auto mt-20">
             <OtherScreenNavBar />
             <h1 className="text-4xl font-bold mb-6">{title}</h1>
             <p className="text-lg mb-4">{intro}</p>
