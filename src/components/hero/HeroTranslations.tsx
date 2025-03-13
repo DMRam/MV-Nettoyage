@@ -23,5 +23,8 @@ export const hero_images = [
     "https://koala.sh/api/image/v2-5r9ff-1pquq.jpg?width=1344&height=768&dream",
     "https://thepinkwand.com/wp-content/uploads/2023/09/airbnb-3399753_1920.jpg",
     "https://fastmaidservice.com/wp-content/uploads/2022/12/No-Need-to-Buy-Expensive-Cleaning-Supplies.png",
-    "https://xtremecleancostarica.com/wp-content/uploads/2020/10/lavadoapresion-scaled.jpg"
+    "https://xtremecleancostarica.com/wp-content/uploads/2020/10/lavadoapresion-scaled.jpg",
+    "https://www.improvinglives.com.au/wp-content/uploads/2024/05/Gardening-Maintenance-Outdoor-Cleaning.jpg",
+    "https://5.imimg.com/data5/SELLER/Default/2024/3/395612638/DK/YU/JX/77594007/garden-clean-up-and-maintenance-service.jpg",
+    "https://firebasestorage.googleapis.com/v0/b/ecoserv-c2203.firebasestorage.app/o/ddd724d43aa84ad7939fc7c90c19e8bd.jpg?alt=media&token=62798917-90cd-45be-82f1-dd36a40b0143"
 ];

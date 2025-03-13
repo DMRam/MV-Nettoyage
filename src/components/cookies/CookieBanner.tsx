@@ -27,8 +27,8 @@ export const CookieConsent = () => {
     if (!isVisible) return null; // Don't render the banner if the user has already accepted cookies
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 flex justify-between items-center z-50">
-            <p className="text-sm">
+        <div className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center z-50">
+            <p className="text-sm mb-4 sm:mb-0">
                 {message}{" "}
                 <a href="/cookie-policy" className="underline hover:text-yellow-500">
                     {learnMore}
@@ -36,7 +36,7 @@ export const CookieConsent = () => {
             </p>
             <button
                 onClick={handleAccept}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300 self-start"
             >
                 {accept}
             </button>

@@ -29,7 +29,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         windowCleaning: false,
     });
     const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
-    // const [image, setImage] = useState<File | null>(null);
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [showEstimate, setShowEstimate] = useState(false);
@@ -63,7 +62,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
-    // Separate function to validate the phone number
     const validatePhoneNumber = (phoneNumber: string): string | undefined => {
         if (!phoneNumber) {
             return t.phoneNumberError || "Phone number is required.";
@@ -71,38 +69,31 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         if (!/^\d{10}$/.test(phoneNumber)) {
             return t.phoneNumberError || "Please enter a valid 10-digit phone number.";
         }
-        return undefined; // No error
+        return undefined;
     };
 
     const validateInputs = () => {
         const newErrors: { area?: string; email?: string; phoneNumber?: string } = {};
 
-        // Validate area
         if (area === null || area <= 0) {
             newErrors.area = t.areaError;
         }
 
-        // Validate email
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             newErrors.email = t.emailError || "Please enter a valid email address.";
         }
 
-        // Validate phone number using the separate function
         const phoneNumberError = validatePhoneNumber(phoneNumber);
         if (phoneNumberError) {
             newErrors.phoneNumber = phoneNumberError;
         }
 
-        console.log("Validation Errors:", newErrors); // Debugging
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const calculateEstimate = () => {
-        console.log("Calculate Estimate button clicked"); // Debugging
-
-        const basePrice =
-            cleaningType === "basic" ? 0.25 : cleaningType === "standard" ? 0.35 : 0.45;
+        const basePrice = 0.30; // Base price of $0.30 per square foot
 
         let estimate = (area || 0) * basePrice;
 
@@ -112,15 +103,10 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
 
         setEstimatedCost(parseFloat(estimate.toFixed(2)));
         setShowEstimate(true);
-        console.log("Estimate calculated:", estimate); // Debugging
     };
 
     const sendForValidation = async () => {
-        console.log("Send for Validation button clicked"); // Debugging
-        if (!validateInputs()) {
-            console.log("Validation failed. Cannot send form."); // Debugging
-            return;
-        }
+        if (!validateInputs()) return;
 
         setIsLoading(true);
         try {
@@ -155,22 +141,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
-    // const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     image
-    //     const file = e.target.files?.[0];
-    //     if (file) {
-    //         if (file.size > 5 * 1024 * 1024) {
-    //             alert(t.uploadImageError);
-    //             return;
-    //         }
-    //         if (!file.type.startsWith("image/")) {
-    //             alert(t.uploadImageTypeError);
-    //             return;
-    //         }
-    //         setImage(file);
-    //     }
-    // };
-
     useEffect(() => {
         if (!isOpen) {
             setArea(null);
@@ -179,7 +149,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
             setCleaningType("basic");
             setAdditionalOptions({ deepCleaning: false, ecoFriendly: false, windowCleaning: false });
             setEstimatedCost(null);
-            // setImage(null);
             setEmail("");
             setPhoneNumber("");
             setShowEstimate(false);
@@ -256,17 +225,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 )}
                             </div>
 
-                            {/* Cleaning Type */}
-                            <select
-                                value={cleaningType}
-                                onChange={(e) => setCleaningType(e.target.value)}
-                                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                            >
-                                <option value="basic">{t.cleaningType.basic}</option>
-                                <option value="standard">{t.cleaningType.standard}</option>
-                                <option value="premium">{t.cleaningType.premium}</option>
-                            </select>
-
                             {/* Additional Services */}
                             <div className="space-y-2">
                                 <label className="font-medium text-gray-800">{t.additionalWork}</label>
@@ -289,99 +247,88 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 </div>
                             </div>
 
-                            {/* Image Upload - this can be done with Firestore */}
-                            {/* <div>
-                                <label className="font-medium text-gray-800">{t.uploadImage}</label>
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleImageUpload}
-                                    className="mt-1"
-                                />
-                                {image && <p className="text-green-600 mt-1">Image uploaded: {image.name}</p>}
-                            </div> */}
-
                             {/* Estimate Review and Confirmation */}
-                            {!showEstimate ? (
-                                <button
-                                    type="button"
-                                    className="w-full bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-500 transition-all"
-                                    onClick={calculateEstimate}
+                            {showEstimate && (
+                                <motion.div
+                                    className="mt-4 p-4 bg-green-50 border border-green-300 text-green-800 rounded-lg shadow-sm"
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    {t.reviewEstimate}
-                                </button>
-                            ) : (
-                                <>
-                                    <motion.div
-                                        className="mt-4 p-4 bg-green-50 border border-green-300 text-green-800 rounded-lg shadow-sm"
-                                        initial={{ scale: 0.9, opacity: 0 }}
-                                        animate={{ scale: 1, opacity: 1 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <p className="text-lg font-medium">
-                                            {t.estimatedCost}:
-                                            <span className="font-bold text-green-900 ml-1">
-                                                ${estimatedCost?.toLocaleString()}
-                                            </span>
-                                        </p>
-                                        <p className="text-sm text-green-700 mt-1 italic">
-                                            {t.message_final_price}
-                                        </p>
-                                    </motion.div>
-                                    <textarea
-                                        value={note}
-                                        onChange={(e) => setNote(e.target.value)}
-                                        placeholder={t.addNote}
-                                        className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                    />
-
-
-                                    {/* Email Input */}
-                                    <div>
-                                        <input
-                                            type="email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            placeholder={t.emailPlaceholder}
-                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                            aria-invalid={!!errors.email}
-                                            aria-describedby="emailError"
-                                        />
-                                        {errors.email && (
-                                            <p id="emailError" className="text-red-500 text-sm mt-1">
-                                                {errors.email}
-                                            </p>
-                                        )}
-                                    </div>
-
-                                    {/* Phone Number Input */}
-                                    <div>
-                                        <input
-                                            type="tel"
-                                            value={phoneNumber}
-                                            onChange={(e) => setPhoneNumber(e.target.value)}
-                                            placeholder={t.phonePlaceholder || "Phone Number"}
-                                            className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                            aria-invalid={!!errors.phoneNumber}
-                                            aria-describedby="phoneError"
-                                        />
-                                        {errors.phoneNumber && (
-                                            <p id="phoneError" className="text-red-500 text-sm mt-1">
-                                                {errors.phoneNumber}
-                                            </p>
-                                        )}
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        onClick={sendForValidation}
-                                        disabled={isLoading || isSent}
-                                        className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-500 transition-all mt-2"
-                                    >
-                                        {isLoading ? t.sending : isSent ? t.sent : t.sendForValidation}
-                                    </button>
-                                </>
+                                    <p className="text-lg font-medium">
+                                        {t.estimatedCost}:
+                                        <span className="font-bold text-green-900 ml-1">
+                                            ${estimatedCost?.toLocaleString()}
+                                        </span>
+                                    </p>
+                                    <p className="text-sm text-green-700 mt-1 italic">
+                                        {t.message_final_price}
+                                    </p>
+                                </motion.div>
                             )}
+
+                            {/* Recalculate Button */}
+                            <button
+                                type="button"
+                                className="w-full bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-500 transition-all"
+                                onClick={calculateEstimate}
+                            >
+                                {t.reviewEstimate}
+                            </button>
+
+                            {/* Email Input */}
+                            <div>
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder={t.emailPlaceholder}
+                                    className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                    aria-invalid={!!errors.email}
+                                    aria-describedby="emailError"
+                                />
+                                {errors.email && (
+                                    <p id="emailError" className="text-red-500 text-sm mt-1">
+                                        {errors.email}
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* Phone Number Input */}
+                            <div>
+                                <input
+                                    type="tel"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    placeholder={t.phonePlaceholder || "+1 (555) 555-5555"}
+                                    className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                    aria-invalid={!!errors.phoneNumber}
+                                    aria-describedby="phoneError"
+                                />
+                                {errors.phoneNumber && (
+                                    <p id="phoneError" className="text-red-500 text-sm mt-1">
+                                        {errors.phoneNumber}
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* Note Input */}
+                            <textarea
+                                value={note}
+                                onChange={(e) => setNote(e.target.value)}
+                                placeholder={t.addNote}
+                                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+                            />
+
+                            {/* Send Button */}
+                            <button
+                                type="button"
+                                onClick={sendForValidation}
+                                disabled={isLoading || isSent}
+                                className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-500 transition-all mt-2"
+                            >
+                                {isLoading ? t.sending : isSent ? t.sent : t.sendForValidation}
+                            </button>
                         </form>
                     </motion.div>
                 </motion.div>

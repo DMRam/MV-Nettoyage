@@ -9,7 +9,7 @@ export const AboutUs = () => {
   return (
     <section
       id="about"
-      className="py-24 px-6 text-center bg-gradient-to-b from-gray-50 to-white rounded-t-3xl shadow-lg border border-gray-100 relative -mt-10"
+      className="py-24 px-6 text-center bg-gradient-to-b from-green-50 to-white rounded-t-3xl shadow-lg border border-gray-100 relative -mt-10"
     >
       {/* Main Heading */}
       <motion.h2

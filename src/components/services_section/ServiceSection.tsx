@@ -41,7 +41,7 @@ export const ServicesSection = () => {
   return (
     <section
       style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
-      className="py-20 px-6 text-center bg-gray-200 rounded-t-3xl shadow-lg border border-gray-200 relative -mt-10"
+      className="py-20 px-6 text-center bg-gradient-to-b from-white to-white rounded-t-3xl shadow-lg border border-gray-100 relative -mt-10"
       id="services"
     >
       <h2 className="text-5xl font-serif font-bold mb-16 leading-tight tracking-wide text-gray-900">
@@ -50,13 +50,13 @@ export const ServicesSection = () => {
 
       {/* Service Cards */}
       <div
-        style={{ margin: 10 }} // Reduced margin around the grid container
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-4" // Reduced gap between grid items
+        style={{ margin: -10 }} // Reduced margin around the grid container
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-4"
       >
         {currentTranslations.services.map((service: any, index: number) => (
           <motion.div
             key={service.title}
-            className="group relative bg-white rounded-lg shadow-sm overflow-hidden transform transition-all duration-300 ease-out hover:shadow-xl cursor-pointer border border-gray-200"
+            className="group relative bg-white rounded-lg shadow-sm overflow-hidden transform transition-all duration-300 ease-out hover:shadow-xl cursor-pointer border border-gray-100"
             onClick={() => handleCardClick(service)} // Use handleCardClick
             whileHover={{ scale: 1.02 }} // Hover effect for the entire card
             initial={{ opacity: 0, y: 50 }} // Fade-in animation
@@ -126,40 +126,7 @@ export const ServicesSection = () => {
           ))}
         </div>
       </div>
-      {/*  
-      Pricing Plans Section
-      <div className="mt-20">
-        <h3 className="text-3xl font-serif font-bold mb-8 text-gray-900">
-          {newTranslations.pricingTitle}
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {Object.values(newTranslations.pricingPlans).map((plan: any, index: any) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="text-2xl font-semibold text-gray-900 mb-4">{plan.title}</h4>
-              <p className="text-gray-600 mb-4">{plan.price}</p>
-              <ul className="text-gray-600 mb-6">
-                {plan.features.map((feature: any, index: any) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-              <button
-                onClick={() => handleBookNowClick(plan)}
-                className="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-              >
-                {plan.button}
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      <ModalPlans
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        plan={selectedPlan}
-        languageSelected={languageSelected} // Pass the selected language
-      />
-*/}
       {/* Testimonials Section */}
       <div className="mt-20">
         <h3 className="text-3xl font-serif font-bold mb-8 text-gray-900">

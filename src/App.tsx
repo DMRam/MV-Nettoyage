@@ -2,7 +2,7 @@ import HeroSection from './components/hero/HeroSectionAnimated';
 import { AboutUs } from './components/about/AboutUs';
 import './App.css';
 import { ServicesSection } from './components/services_section/ServiceSection';
-import { Portfolio } from './components/portfolio/Portfolio';
+// import { Portfolio } from './components/portfolio/Portfolio';
 import { ScrollToTop } from './utils/scrolling/ScrollTop';
 import { CookieConsent } from './components/cookies/CookieBanner';
 import { ContactUs } from './components/contact/ContactUs';
@@ -22,7 +22,7 @@ export const App = () => {
         {/* About Us Section */}
         <AboutUs />
         {/* Portfolio Section */}
-        <Portfolio />
+        {/* <Portfolio /> */}
         {/* Services Section */}
         <ServicesSection />
         {/* ContactUs Section */}
