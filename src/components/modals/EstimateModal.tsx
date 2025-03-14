@@ -93,10 +93,15 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
     };
 
     const calculateEstimate = () => {
-        const basePrice = 0.30; // Base price of $0.30 per square foot
+        let basePricePerSqFt = 0.30; // Default rate
 
-        let estimate = (area || 0) * basePrice;
+        // Adjust pricing based on area size
+        if (area && area > 1000) basePricePerSqFt = 0.25;
+        if (area && area > 3500) basePricePerSqFt = 0.20;
 
+        let estimate = (area || 0) * basePricePerSqFt;
+
+        // Add cost for additional services
         if (additionalOptions.deepCleaning) estimate += (area || 0) * 0.05;
         if (additionalOptions.ecoFriendly) estimate += (area || 0) * 0.03;
         if (additionalOptions.windowCleaning) estimate += (area || 0) * 0.07;
@@ -104,6 +109,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         setEstimatedCost(parseFloat(estimate.toFixed(2)));
         setShowEstimate(true);
     };
+
 
     const sendForValidation = async () => {
         if (!validateInputs()) return;
@@ -280,13 +286,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                                 showEstimate && (
 
                                     <>
-
-
-
-
-
-
-
                                         {/* Email Input */}
                                         <div>
                                             <input
