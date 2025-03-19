@@ -24,7 +24,7 @@ export const EcoBanner = () => {
     }, []);
 
     // Get the message based on the selected language
-    const { heading, description, cta } = messages[languageSelected] || messages['EN-US'];
+    const { heading, description } = messages[languageSelected] || messages['EN-US'];
 
     return (
         <div
