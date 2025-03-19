@@ -2,11 +2,12 @@ import HeroSection from './components/hero/HeroSectionAnimated';
 import { AboutUs } from './components/about/AboutUs';
 import './App.css';
 import { ServicesSection } from './components/services_section/ServiceSection';
-// import { Portfolio } from './components/portfolio/Portfolio';
 import { ScrollToTop } from './utils/scrolling/ScrollTop';
 import { CookieConsent } from './components/cookies/CookieBanner';
 import { ContactUs } from './components/contact/ContactUs';
 import { NavBar } from './components/navbar/NavBar';
+import { EcoBanner } from './components/banners/EcoBanner';
+import { PromoBanner } from './components/banners/PromoBanner';
 
 export const App = () => {
   return (
@@ -14,6 +15,10 @@ export const App = () => {
       <div style={{ width: '100%', minHeight: '100vh' }} className="bg-gray-50">
         <ScrollToTop />
         <NavBar />
+        {/* Eco Banner */}
+        <EcoBanner />
+        {/* Promo Banner */}
+        <PromoBanner />
         {/* Cookie Consent Banner */}
         <CookieConsent />
         {/* Hero Section */}
@@ -22,16 +27,12 @@ export const App = () => {
         <section id="about">
           <AboutUs />
         </section>
-        {/* Portfolio Section */}
-        {/* <section id="portfolio"> 
-          <Portfolio />
-        </section> */}
         {/* Services Section */}
-        <section id="services"> 
+        <section id="services">
           <ServicesSection />
         </section>
         {/* ContactUs Section */}
-        <section id="contact"> 
+        <section id="contact">
           <ContactUs />
         </section>
       </div>

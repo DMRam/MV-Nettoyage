@@ -85,7 +85,7 @@ export const NavBar = () => {
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     {/* Logo */}
                     <div className="flex flex-col items-center text-center space-y-2">
-                        <img src={logo} alt="Logo" className="h-12" />
+                        <img src={logo} alt="Logo" className="h-14" />
                     </div>
 
                     {/* Desktop Menu */}

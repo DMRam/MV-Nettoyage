@@ -126,65 +126,6 @@ export const OurServiceDetail = () => {
 
     return (
         <div className="min-h-screen relative bg-gradient-to-br from-blue-50 to-purple-50">
-            {/* Dynamic Lines Background */}
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="100%"
-                className="absolute inset-0 z-0"
-            >
-                {/* Gradient Overlay */}
-                <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FF6B6B" stopOpacity="0.1" />
-                        <stop offset="50%" stopColor="#4ECDC4" stopOpacity="0.1" />
-                        <stop offset="100%" stopColor="#6B5B95" stopOpacity="0.1" />
-                    </linearGradient>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#gradient)" />
-
-                {/* Random Horizontal Lines */}
-                {Array.from({ length: 20 }).map((_, i) => (
-                    <line
-                        key={`h-${i}`}
-                        x1="0"
-                        y1={`${(i + 1) * 5}%`}
-                        x2="100%"
-                        y2={`${(i + 1) * 5}%`}
-                        stroke="#FF6B6B"
-                        strokeWidth="1"
-                        strokeOpacity="0.3"
-                    />
-                ))}
-
-                {/* Random Vertical Lines */}
-                {Array.from({ length: 20 }).map((_, i) => (
-                    <line
-                        key={`v-${i}`}
-                        x1={`${(i + 1) * 5}%`}
-                        y1="0"
-                        x2={`${(i + 1) * 5}%`}
-                        y2="100%"
-                        stroke="#4ECDC4"
-                        strokeWidth="1"
-                        strokeOpacity="0.3"
-                    />
-                ))}
-
-                {/* Random Diagonal Lines */}
-                {Array.from({ length: 20 }).map((_, i) => (
-                    <line
-                        key={`d-${i}`}
-                        x1={`${Math.random() * 100}%`}
-                        y1={`${Math.random() * 100}%`}
-                        x2={`${Math.random() * 100}%`}
-                        y2={`${Math.random() * 100}%`}
-                        stroke="#6B5B95"
-                        strokeWidth="1"
-                        strokeOpacity="0.3"
-                    />
-                ))}
-            </svg>
 
             {/* Content */}
             <div className="relative z-10">

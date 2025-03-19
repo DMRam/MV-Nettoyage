@@ -37,31 +37,38 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
     const [isSent, setIsSent] = useState(false);
     const [note, setNote] = useState("");
 
-    const convertToMetric = (value: number) => value * 0.092903;
-    const convertToImperial = (value: number) => value / 0.092903;
+    // Conversion functions
+    const convertToSquareMeters = (value: number) => value / 10.764; // Convert square feet to square meters
+    const convertToSquareFeet = (value: number) => value * 10.764; // Convert square meters to square feet
 
+    // Update display area when unit changes
     useEffect(() => {
         if (area !== null) {
-            const convertedArea = isMetric ? convertToMetric(area) : area;
-            setDisplayArea(convertedArea.toString());
+            const convertedArea = isMetric ? area : convertToSquareFeet(area);
+            setDisplayArea(convertedArea.toFixed(2).toString());
         }
-    }, [isMetric, area]);
+    }, [isMetric]);
 
+    // Handle area input change
     const handleAreaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
+        setDisplayArea(value); 
+
         if (value === "") {
             setArea(null);
-            setDisplayArea("");
             return;
         }
-        const numericValue = parseFloat(value);
+
+        const numericValue = parseFloat(value); // Usa parseFloat en lugar de parseInt
         if (!isNaN(numericValue)) {
-            const internalValue = isMetric ? convertToImperial(numericValue) : numericValue;
+            const internalValue = isMetric ? numericValue : convertToSquareMeters(numericValue);
             setArea(internalValue);
-            setDisplayArea(value);
         }
     };
 
+
+    console.log(" ------> " + displayArea)
+    // Validate phone number
     const validatePhoneNumber = (phoneNumber: string): string | undefined => {
         if (!phoneNumber) {
             return t.phoneNumberError || "Phone number is required.";
@@ -72,6 +79,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         return undefined;
     };
 
+    // Validate all inputs
     const validateInputs = () => {
         const newErrors: { area?: string; email?: string; phoneNumber?: string } = {};
 
@@ -92,25 +100,37 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         return Object.keys(newErrors).length === 0;
     };
 
+    // Calculate the estimate
     const calculateEstimate = () => {
-        let basePricePerSqFt = 0.30; // Default rate
+        const MINIMUM_PRICE = 120; // Minimum price for any service
+        const BASE_RATE_SMALL = 0.9; // Base rate for areas <= 100 m²
+        const BASE_RATE_MEDIUM = 0.7; // Base rate for areas > 100 m²
+        const BASE_RATE_LARGE = 0.6; // Base rate for areas > 300 m²
 
         // Adjust pricing based on area size
-        if (area && area > 1000) basePricePerSqFt = 0.25;
-        if (area && area > 3500) basePricePerSqFt = 0.20;
+        let basePricePerSqMeter = BASE_RATE_SMALL; // Default rate
+        if (area && area > 100) basePricePerSqMeter = BASE_RATE_MEDIUM;
+        if (area && area > 300) basePricePerSqMeter = BASE_RATE_LARGE;
 
-        let estimate = (area || 0) * basePricePerSqFt;
+        // Calculate base estimate
+        let estimate = (area || 0) * basePricePerSqMeter;
 
-        // Add cost for additional services
-        if (additionalOptions.deepCleaning) estimate += (area || 0) * 0.05;
-        if (additionalOptions.ecoFriendly) estimate += (area || 0) * 0.03;
-        if (additionalOptions.windowCleaning) estimate += (area || 0) * 0.07;
+        // Add cost for additional services (flat fees)
+        if (additionalOptions.deepCleaning) estimate += 50; // Flat fee for deep cleaning
+        if (additionalOptions.ecoFriendly) estimate += 30; // Flat fee for eco-friendly
+        if (additionalOptions.windowCleaning) estimate += 70; // Flat fee for window cleaning
 
-        setEstimatedCost(parseFloat(estimate.toFixed(2)));
+        // Ensure the estimate meets the minimum price
+        if (estimate < MINIMUM_PRICE) estimate = MINIMUM_PRICE;
+
+        // Round to 2 decimal places
+        estimate = parseFloat(estimate.toFixed(2));
+
+        setEstimatedCost(estimate);
         setShowEstimate(true);
     };
 
-
+    // Send the estimate for validation
     const sendForValidation = async () => {
         if (!validateInputs()) return;
 
@@ -147,6 +167,7 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
         }
     };
 
+    // Reset the modal when closed
     useEffect(() => {
         if (!isOpen) {
             setArea(null);
@@ -209,10 +230,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
                             {/* Area Input */}
                             <div>
                                 <div className="relative mt-4">
-                                    {/* <label className="block text-xs text-gray-600 font-medium mb-1">
-                                        {t.message_recalculate}
-                                    </label> */}
-
                                     <div className="relative">
                                         <input
                                             type="text"
@@ -284,7 +301,6 @@ export const CleaningEstimateModal: React.FC<ModalProps> = ({ isOpen, onClose })
 
                             {
                                 showEstimate && (
-
                                     <>
                                         {/* Email Input */}
                                         <div>

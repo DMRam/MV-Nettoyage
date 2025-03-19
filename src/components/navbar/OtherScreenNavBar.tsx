@@ -52,7 +52,7 @@ export const OtherScreenNavBar = () => {
                     className="flex items-center cursor-pointer" // Add cursor-pointer for clickable effect
                     onClick={() => navigate("/")} // Navigate to the home page on click
                 >
-                    <img src={logo} alt="Logo" className="h-12" />
+                    <img src={logo} alt="Logo" className="h-14" />
                 </div>
 
                 {/* Back Button */}
