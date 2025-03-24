@@ -1,68 +1,63 @@
 import { useState, useEffect } from "react";
 import logo from '../../assets/logo/logo_ecoserv.png';
 import { useNavigate } from "react-router-dom";
-import { useLanguageSelector } from "../../hooks/useLanguageSelector"; // Import your custom hook
+import { useLanguageSelector } from "../../hooks/useLanguageSelector";
 import { other_screen_navbar_translations } from "./NavBarTranslations";
+import { motion } from "framer-motion";
 
 export const OtherScreenNavBar = () => {
     const navigate = useNavigate();
-    const [visible, setVisible] = useState(true); // Initially, the navbar is visible
-
-    // Get the selected language from your custom hook
+    const [visible, setVisible] = useState(true);
+    const [scrolled, setScrolled] = useState(false);
     const { languageSelected } = useLanguageSelector();
 
     useEffect(() => {
-        let lastScrollTop = 0; // Track the last scroll position
+        let lastScrollTop = 0;
 
         const handleScroll = () => {
             const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            setScrolled(currentScroll > 20);
 
             if (currentScroll > lastScrollTop && currentScroll > 50) {
-                // Scrolling down and passed the top
-                setVisible(false); // Hide navbar
+                setVisible(false);
             } else {
-                // Scrolling up or at the top of the page
-                setVisible(true); // Show navbar
+                setVisible(true);
             }
 
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Get the translation based on the selected language
-    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["fr"]; // Fallback to French
+    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["fr"];
 
-
-    /**
-     * <nav className={`bg-blue-600 text-white p-4 fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-500 
-                ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-100%]"}`}>
-     */
     return (
-        <div
-        className={`bg-blue-600 text-white p-4 fixed top-0 left-0 w-full z-50 shadow-md transition-all duration-500 
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-100%]"}`}
-        >
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out
+            bg-gradient-to-b from-blue-900/95 to-blue-800/95 backdrop-blur-sm
+            ${visible ? 'translate-y-0' : '-translate-y-full'}
+            ${scrolled ? 'shadow-xl py-3 border-b border-blue-700/30' : 'shadow-lg py-4'}`}>
+
+            <div className="container mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
-                <div
-                    className="flex items-center cursor-pointer" // Add cursor-pointer for clickable effect
-                    onClick={() => navigate("/")} // Navigate to the home page on click
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="flex items-center cursor-pointer"
+                    onClick={() => navigate("/")}
                 >
-                    <img src={logo} alt="Logo" className="h-14" />
-                </div>
+                    <img src={logo} alt="Logo" className="h-12 md:h-14 transition-all duration-300" />
+                </motion.div>
 
                 {/* Back Button */}
-                <button
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
                     onClick={() => navigate(-1)}
-                    className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-yellow-400 transition-all duration-300"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-blue-800/40 hover:bg-blue-700/60 transition-all border border-blue-600/40 group"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-7 w-7"
+                        className="h-6 w-6 text-blue-200 group-hover:text-white transition-colors"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -70,13 +65,15 @@ export const OtherScreenNavBar = () => {
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth={2}
+                            strokeWidth={1.5}
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                         />
                     </svg>
-                    <span className="hidden sm:inline font-medium">{back}</span>
-                </button>
+                    <span className="hidden sm:inline text-blue-100 group-hover:text-white font-medium transition-colors">
+                        {back}
+                    </span>
+                </motion.button>
             </div>
-        </div>
+        </nav>
     );
 };
