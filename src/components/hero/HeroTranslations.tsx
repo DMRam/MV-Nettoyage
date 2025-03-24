@@ -1,17 +1,17 @@
 export const hero_translations: any = {
-    '⚜️ FR': {
+    'fr': {
         title: "Services de Nettoyage Professionnels de Qualité Supérieure",
         description:
             "Offrez à votre maison ou entreprise un environnement propre et sain grâce à nos services de nettoyage professionnels. Nous utilisons des produits écologiques et des techniques efficaces pour garantir des résultats impeccables, partout où vous en avez besoin.",
         button: "Obtenez une Estimation Immédiate"
     },
-    '🇨🇦 EN': {
+    'en': {
         title: "Premium Professional Cleaning Services",
         description:
             "Give your home or business a clean and healthy environment with our professional cleaning services. We use eco-friendly products and effective techniques to ensure spotless results, wherever you need us.",
         button: "Get an Instant Estimate"
     },
-    '🇨🇱 ES': {
+    'es': {
         title: "Servicios de Limpieza Profesional de Primera Calidad",
         description:
             "Brinde a su hogar o negocio un ambiente limpio y saludable con nuestros servicios de limpieza profesional. Utilizamos productos ecológicos y técnicas efectivas para garantizar resultados impecables, donde sea que nos necesite.",

@@ -1,5 +1,5 @@
 export const navbar_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         about: 'About Us',
         services: 'Services',
         portfolio: 'Portfolio',
@@ -7,7 +7,7 @@ export const navbar_translations: any = {
         contact: 'Contact',
         language: 'Language'
     },
-    '⚜️ FR': {
+    'fr': {
         about: 'À propos de nous',
         services: 'Services',
         portfolio: 'Portfolio',
@@ -15,7 +15,7 @@ export const navbar_translations: any = {
         contact: 'Contact',
         language: 'Langue'
     },
-    '🇨🇱 ES': {
+    'es': {
         about: 'Sobre nosotros',
         services: 'Servicios',
         portfolio: 'Portafolio',
@@ -26,13 +26,13 @@ export const navbar_translations: any = {
 };
 
 export const other_screen_navbar_translations:any = {
-    "🇨🇦 EN": {
+    "en": {
         back: "Back",
     },
-    "⚜️ FR": {
+    "fr": {
         back: "Retour",
     },
-    "🇨🇱 ES": {
+    "ES": {
         back: "Atrás",
     },
 };

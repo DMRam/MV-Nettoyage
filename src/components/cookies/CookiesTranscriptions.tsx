@@ -1,15 +1,15 @@
 export const cookie_banner_translations: any = {
-    "🇨🇦 EN": {
+    "en": {
         message: "We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.",
         learnMore: "Learn more",
         accept: "Accept",
     },
-    "⚜️ FR": {
+    "fr": {
         message: "Nous utilisons des cookies pour améliorer votre expérience. En continuant à visiter ce site, vous acceptez notre utilisation des cookies.",
         learnMore: "En savoir plus",
         accept: "Accepter",
     },
-    "🇨🇱 ES": {
+    "ES": {
         message: "Utilizamos cookies para mejorar tu experiencia. Al continuar visitando este sitio, aceptas nuestro uso de cookies.",
         learnMore: "Saber más",
         accept: "Aceptar",
@@ -17,7 +17,7 @@ export const cookie_banner_translations: any = {
 };
 
 export const cookie_policy_translations: any = {
-    "🇨🇦 EN": {
+    "en": {
         title: "Cookie Policy",
         intro: "We use cookies to improve your experience on our website. This policy explains what cookies are, how we use them, and how you can manage them.",
         whatAreCookies: {
@@ -38,7 +38,7 @@ export const cookie_policy_translations: any = {
             content: "You can manage or disable cookies through your browser settings. However, this may affect your experience on our website.",
         },
     },
-    "⚜️ FR": {
+    "fr": {
         title: "Politique en matière de cookies",
         intro: "Nous utilisons des cookies pour améliorer votre expérience sur notre site web. Cette politique explique ce que sont les cookies, comment nous les utilisons et comment vous pouvez les gérer.",
         whatAreCookies: {
@@ -59,7 +59,7 @@ export const cookie_policy_translations: any = {
             content: "Vous pouvez gérer ou désactiver les cookies via les paramètres de votre navigateur. Cependant, cela peut affecter votre expérience sur notre site web.",
         },
     },
-    "🇨🇱 ES": {
+    "ES": {
         title: "Política de cookies",
         intro: "Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Esta política explica qué son las cookies, cómo las utilizamos y cómo puedes gestionarlas.",
         whatAreCookies: {

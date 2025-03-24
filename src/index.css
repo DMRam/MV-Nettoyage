@@ -1,2 +1,10 @@
 @import "tailwindcss";
 
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  .scroll-link {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}

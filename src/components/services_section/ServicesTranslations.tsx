@@ -1,5 +1,5 @@
 export const services_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         sectionTitle: "Elevate Your Spaces with Expert Cleaning & Maintenance Solutions",
         services: [
             {
@@ -152,7 +152,7 @@ export const services_translations: any = {
             },
         ],
     },
-    '⚜️ FR': {
+    'fr': {
         sectionTitle: "Améliorez vos espaces avec des solutions expertes de nettoyage et d’entretien",
         services: [
             {
@@ -306,7 +306,7 @@ export const services_translations: any = {
             },
         ],
     },
-    '🇨🇱 ES': {
+    'es': {
         sectionTitle: "Mejora tus espacios con soluciones expertas de limpieza y mantenimiento",
         services: [
             {
@@ -461,7 +461,7 @@ export const services_translations: any = {
 };
 
 export const currentIndividualServices: any = [{
-    '🇨🇦 EN': {
+    'en': {
         individualServices: [
             "High-pressure washing",
             "Patio and deck cleaning",
@@ -479,7 +479,7 @@ export const currentIndividualServices: any = [{
             "Minor repairs and maintenance tasks",
         ],
     },
-    '🇨🇱 ES': {
+    'es': {
         individualServices: [
             "Lavado a presión",
             "Limpieza de patios y terrazas",
@@ -497,7 +497,7 @@ export const currentIndividualServices: any = [{
             "Reparaciones menores y tareas de mantenimiento",
         ],
     },
-    '⚜️ FR': {
+    'fr': {
         individualServices: [
             "Nettoyage haute pression",
             "Nettoyage de terrasses et de patios",
@@ -519,7 +519,7 @@ export const currentIndividualServices: any = [{
 
 
 export const new_sections_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         sectionTitle: "Elevate Your Spaces with Expert Cleaning & Maintenance Solutions",
         individualServicesTitle: "Individual Services We Offer",
         faqTitle: "Frequently Asked Questions",
@@ -588,7 +588,7 @@ export const new_sections_translations: any = {
             },
         ],
     },
-    '🇨🇱 ES': {
+    'es': {
         sectionTitle: "Eleva tus Espacios con Soluciones Expertas de Limpieza y Mantenimiento",
         individualServicesTitle: "Servicios Individuales que Ofrecemos",
         faqTitle: "Preguntas Frecuentes",
@@ -657,7 +657,7 @@ export const new_sections_translations: any = {
             },
         ],
     },
-    '⚜️ FR': {
+    'fr': {
         sectionTitle: "Élevez Vos Espaces avec des Solutions Expertes de Nettoyage et d'Entretien",
         individualServicesTitle: "Services Individuels que Nous Offrons",
         faqTitle: "Questions Fréquemment Posées",

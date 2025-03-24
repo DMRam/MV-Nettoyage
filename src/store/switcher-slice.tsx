@@ -4,7 +4,7 @@ import { RootState } from "./index";
 const modalContactForm = false
 
 const initialState = {
-    language: '⚜️ FR',
+    language: 'fr',
     modalContactForm
 };
 

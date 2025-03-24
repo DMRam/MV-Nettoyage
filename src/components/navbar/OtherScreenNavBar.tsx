@@ -34,7 +34,7 @@ export const OtherScreenNavBar = () => {
     }, []);
 
     // Get the translation based on the selected language
-    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["⚜️ FR"]; // Fallback to French
+    const { back } = other_screen_navbar_translations[languageSelected] || other_screen_navbar_translations["fr"]; // Fallback to French
 
 
     /**

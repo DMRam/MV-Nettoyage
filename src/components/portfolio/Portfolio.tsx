@@ -8,9 +8,9 @@ export const Portfolio = () => {
 
 
     const translations: any = {
-        "🇨🇦 EN": "Our Recent Work",
-        "🇨🇱 ES": "Trabajos recientes", // Fixed typo
-        "⚜️ FR": "Derniers travaux", // Fixed typo
+        "en": "Our Recent Work",
+        "ES": "Trabajos recientes", // Fixed typo
+        "fr": "Derniers travaux", // Fixed typo
     };
 
     const translatedText = translations[languageSelected]

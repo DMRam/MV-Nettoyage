@@ -1,5 +1,5 @@
 export const service_detail_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         requestInfo: "Request More Information",
         nameLabel: "Name",
         emailLabel: "Email",
@@ -14,7 +14,7 @@ export const service_detail_translations: any = {
         successMessage: "Thank you! Your message has been sent successfully.",
         errorMessage: "Failed to send email. Please try again.",
     },
-    '⚜️ FR': {
+    'fr': {
         requestInfo: "Demande d'informations supplémentaires",
         nameLabel: "Nom",
         emailLabel: "Email",
@@ -29,7 +29,7 @@ export const service_detail_translations: any = {
         successMessage: "Merci! Votre message a été envoyé avec succès.",
         errorMessage: "Échec de l'envoi de l'e-mail. Veuillez réessayer.",
     },
-    '🇨🇱 ES': {
+    'es': {
         requestInfo: "Solicitar más información",
         nameLabel: "Nombre",
         emailLabel: "Correo electrónico",

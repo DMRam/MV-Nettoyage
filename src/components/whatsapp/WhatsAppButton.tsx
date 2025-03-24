@@ -10,13 +10,13 @@ export const WhatsAppButton = () => {
 
     // Define WhatsApp links and messages for each language
     const whatsappLinks: any = {
-        "🇨🇦 EN": `https://wa.me/${whatsappNumber}?text=Hello!%20I%20have%20a%20question%20about%20your%20services.`,
-        "⚜️ FR": `https://wa.me/${whatsappNumber}?text=Bonjour!%20J'ai%20une%20question%20sur%20vos%20services.`,
-        "🇨🇱 ES": `https://wa.me/${whatsappNumber}?text=¡Hola!%20Tengo%20una%20pregunta%20sobre%20sus%20servicios.`,
+        "en": `https://wa.me/${whatsappNumber}?text=Hello!%20I%20have%20a%20question%20about%20your%20services.`,
+        "fr": `https://wa.me/${whatsappNumber}?text=Bonjour!%20J'ai%20une%20question%20sur%20vos%20services.`,
+        "ES": `https://wa.me/${whatsappNumber}?text=¡Hola!%20Tengo%20una%20pregunta%20sobre%20sus%20servicios.`,
     };
 
     // Get the WhatsApp link based on the selected language
-    const whatsappLink = whatsappLinks[languageSelected] || whatsappLinks["🇨🇦 EN"]; // Fallback to English
+    const whatsappLink = whatsappLinks[languageSelected] || whatsappLinks["en"]; // Fallback to English
 
     // State to control button visibility
     const [isVisible, setIsVisible] = useState(true);

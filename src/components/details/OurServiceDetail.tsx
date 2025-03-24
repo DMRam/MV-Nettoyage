@@ -122,7 +122,7 @@ export const OurServiceDetail = () => {
         serviceOverviewTitle,
         contactFormTitle,
         personalizationNote,
-    } = service_detail_translations[languageSelected] || service_detail_translations["⚜️ FR"];
+    } = service_detail_translations[languageSelected] || service_detail_translations["fr"];
 
     return (
         <div className="min-h-screen relative bg-gradient-to-br from-blue-50 to-purple-50">

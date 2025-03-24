@@ -1,5 +1,5 @@
 export const estimate_modal_translations: any = {
-    "🇨🇦 EN": {
+    "en": {
         title: "Cleaning Services Estimate",
         description: "Fill in the details to get a cleaning estimate.",
         measurementUnit: "Measurement Unit:",
@@ -31,7 +31,7 @@ export const estimate_modal_translations: any = {
         successMessage: "Thank you for contacting us! We'll get back to you soon.",
 
     },
-    "⚜️ FR": {
+    "fr": {
         title: "Estimation des Services de Nettoyage",
         description: "Remplissez les détails pour obtenir une estimation.",
         measurementUnit: "Unité de mesure :",
@@ -62,7 +62,7 @@ export const estimate_modal_translations: any = {
         message_final_price: "➡️ Cette estimation est fournie à titre indicatif et ne constitue pas un prix final.",
         successMessage: "Merci de nous avoir contactés! Nous vous répondrons bientôt.",
     },
-    "🇨🇱 ES": {
+    "ES": {
         title: "Estimación de Servicios de Limpieza",
         description: "Complete los detalles para obtener una estimación.",
         measurementUnit: "Unidad de medida:",
@@ -96,7 +96,7 @@ export const estimate_modal_translations: any = {
 };
 
 export const modal_plans_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         modal: {
             title: "Book",
             nameLabel: "Name",
@@ -110,7 +110,7 @@ export const modal_plans_translations: any = {
             submitButton: "Submit",
         },
     },
-    '🇨🇱 ES': {
+    'es': {
         modal: {
             title: "Reservar",
             nameLabel: "Nombre",
@@ -124,7 +124,7 @@ export const modal_plans_translations: any = {
             submitButton: "Enviar",
         },
     },
-    '⚜️ FR': {
+    'fr': {
         modal: {
             title: "Réserver",
             nameLabel: "Nom",

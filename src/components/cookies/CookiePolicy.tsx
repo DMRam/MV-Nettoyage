@@ -13,7 +13,7 @@ export const CookiePolicy = () => {
         whatAreCookies,
         howWeUseCookies,
         managingCookies,
-    } = cookie_policy_translations[languageSelected] || cookie_policy_translations["⚜️ FR"]; // Fallback to English
+    } = cookie_policy_translations[languageSelected] || cookie_policy_translations["fr"]; // Fallback to English
 
     return (
         <div className="p-8 max-w-4xl mx-auto mt-20">

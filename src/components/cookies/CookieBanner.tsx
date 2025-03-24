@@ -22,7 +22,7 @@ export const CookieConsent = () => {
     };
 
     // Get the translations based on the selected language
-    const { message, learnMore, accept } = cookie_banner_translations[languageSelected] || cookie_banner_translations["⚜️ FR"]; // Fallback to English
+    const { message, learnMore, accept } = cookie_banner_translations[languageSelected] || cookie_banner_translations["fr"]; // Fallback to English
 
     if (!isVisible) return null; // Don't render the banner if the user has already accepted cookies
 

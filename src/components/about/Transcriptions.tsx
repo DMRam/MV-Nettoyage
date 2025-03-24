@@ -1,5 +1,5 @@
 export const about_translations: any = {
-  '🇨🇦 EN': {
+  'en': {
     about: 'About Us',
     description:
       'We are a passionate and driven professional cleaning company, dedicated to delivering exceptional commercial cleaning services. With a modern approach and innovative solutions, we create pristine, healthy environments that enhance productivity and leave a lasting impression on clients and employees alike. Our commitment to quality, eco-friendly practices, and customer satisfaction is the foundation of everything we do.',
@@ -28,7 +28,7 @@ export const about_translations: any = {
       },
     ],
   },
-  '⚜️ FR': {
+  'fr': {
     about: 'À propos de nous',
     description:
       'Nous sommes une entreprise de nettoyage professionnelle passionnée et déterminée, spécialisée dans la fourniture de services de nettoyage commercial exceptionnels. Avec une approche moderne et des solutions innovantes, nous créons des environnements impeccables et sains qui améliorent la productivité et laissent une impression durable sur les clients et les employés. Notre engagement envers la qualité, les pratiques écologiques et la satisfaction client est au cœur de tout ce que nous faisons.',
@@ -57,7 +57,7 @@ export const about_translations: any = {
       },
     ],
   },
-  '🇨🇱 ES': {
+  'es': {
     about: 'Sobre nosotros',
     description:
       'Somos una empresa de limpieza profesional apasionada y comprometida, especializada en ofrecer servicios de limpieza comercial excepcionales. Con un enfoque moderno y soluciones innovadoras, nos dedicamos a crear entornos impecables y saludables que mejoran la productividad y dejan una impresión duradera en clientes y empleados. Nuestro compromiso con la calidad, las prácticas ecológicas y la satisfacción del cliente es la base de todo lo que hacemos.',

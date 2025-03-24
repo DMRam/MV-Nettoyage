@@ -1,5 +1,5 @@
 export const contact_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         contactTitle: "Contact Us",
         getInTouch: "Get in Touch",
         formLabels: {
@@ -42,7 +42,7 @@ export const contact_translations: any = {
             description: "We typically respond within 24 hours.",
         },
     },
-    '⚜️ FR': {
+    'fr': {
         contactTitle: "Contactez-nous",
         getInTouch: "Entrer en contact",
         formLabels: {
@@ -85,7 +85,7 @@ export const contact_translations: any = {
             description: "Nous répondons généralement dans les 24 heures.",
         },
     },
-    '🇨🇱 ES': {
+    'es': {
         contactTitle: "Contáctenos",
         getInTouch: "Póngase en contacto",
         formLabels: {

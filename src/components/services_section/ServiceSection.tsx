@@ -80,9 +80,9 @@ export const ServicesSection = () => {
               </h3>
               <p className="text-lg text-gray-600 mb-6">{service.description}</p>
               <p className="text-sm text-gray-500 italic">
-                {languageSelected === "🇨🇦 EN"
+                {languageSelected === "en"
                   ? "Learn more"
-                  : languageSelected === "🇨🇱 ES"
+                  : languageSelected === "ES"
                     ? "Saber más"
                     : "Savoir plus"}{" "}
                 →

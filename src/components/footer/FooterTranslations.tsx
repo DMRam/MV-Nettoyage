@@ -1,5 +1,5 @@
 export const footer_translations: any = {
-    '🇨🇦 EN': {
+    'en': {
         companyName: "Ecoserv - MV",
         companyDescription: "Transforming your commercial spaces with expert renovation and cleaning services.",
         quickLinksTitle: "Quick Links",
@@ -13,7 +13,7 @@ export const footer_translations: any = {
         followUsTitle: "Follow Us",
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. All rights reserved.`,
     },
-    '⚜️ FR': {
+    'fr': {
         companyName: "Ecoserv - MV",
         companyDescription: "Transformer vos espaces commerciaux avec des services experts de rénovation et de nettoyage.",
         quickLinksTitle: "Liens Rapides",
@@ -27,7 +27,7 @@ export const footer_translations: any = {
         followUsTitle: "Suivez-nous",
         copyright: `© ${new Date().getFullYear()} Ecoserv - MV. Tous droits réservés.`,
     },
-    '🇨🇱 ES': {
+    'es': {
         companyName: "Ecoserv - MV",
         companyDescription: "Transformando sus espacios comerciales con servicios expertos de renovación y limpieza.",
         quickLinksTitle: "Enlaces Rápidos",
