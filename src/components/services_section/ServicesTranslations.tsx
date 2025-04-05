@@ -713,13 +713,13 @@ export const new_sections_translations: any = {
         ],
         testimonials: [
             {
-                name: "Andrew Dixon",
+                name: "Andre Doixon",
                 review: "Le meilleur service de nettoyage que j'ai jamais utilisé ! Mon bureau n'a jamais été aussi propre.",
                 rating: 5,
                 image: "https://media.licdn.com/dms/image/v2/C5603AQHC9Vf6hfDtdQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1636595503240?e=2147483647&v=beta&t=0Nw1ywJ69imuT5Uxv3o5LVPp14DaWCRHtT3kxskX4Wc",
             },
             {
-                name: "Marjorie Daigle",
+                name: "Marie Dupont",
                 review: "Très professionnel et minutieux. Mon Airbnb est toujours prêt pour les invités !",
                 rating: 5,
                 image: "https://i.pinimg.com/280x280_RS/4f/3c/8e/4f3c8e863ab1a48022fbdac86c9c1557.jpg",
